@@ -1,0 +1,988 @@
+-- Header
+
+-- response
+    status
+    message
+    data => HeaderResource 
+
+________________________________________________________________
+
+-- AvailableFeatures
+
+-- response
+    status
+    message
+    data => AvailableFeaturesResource
+    
+________________________________________________________________
+
+-- AboutDoctorHome
+
+-- response
+    status
+    message
+    data => AboutDoctorHomeResource
+
+________________________________________________________________
+
+-- EducationalPlatformsHome
+
+-- response
+    status
+    message
+    data => EducationalPlatformsHomeResource
+
+________________________________________________________________
+
+-- PodcastHome
+
+-- response
+    status
+    message
+    data => PodcastHomeResource
+    
+________________________________________________________________
+
+-- PodcastHome
+
+-- response
+    status
+    message
+    data => PodcastHomeResource
+        
+________________________________________________________________
+
+-- SpecialAdvice
+
+-- response
+    status
+    message
+    data => SpecialAdviceResource
+     
+________________________________________________________________
+
+-- StoreHome
+
+-- response
+    status
+    message
+    data => StoreHomeResource
+         
+________________________________________________________________
+
+-- ConsultingCenter
+
+-- response
+    status
+    message
+    data => ConsultingCenterResource
+    
+________________________________________________________________
+
+-- DoctorsHome
+
+-- response
+    status
+    message
+    data => DoctorsHomeResource
+
+________________________________________________________________
+
+-- BlogsHome
+
+-- response
+    status
+    message
+    data => BlogsHomeResource
+    
+________________________________________________________________
+
+-- AboutUs
+
+-- response
+    status
+    message
+    data => AboutUsResource
+    
+________________________________________________________________
+
+-- WhyDoctor
+
+-- response
+    status
+    message
+    data => WhyDoctorResource
+    
+________________________________________________________________
+
+-- Certificates
+
+-- response
+    status
+    message
+    data => CertificatesResource
+    
+________________________________________________________________
+
+-- Experiences
+
+-- response
+    status
+    message
+    data => ExperiencesResource
+
+________________________________________________________________
+
+-- EducationalPlatforms
+
+-- response
+    status
+    message
+    data => List<EducationalPlatformsResource>
+
+________________________________________________________________
+
+-- DetailsEducationalPlatforms
+
+    - input
+        -- educational_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => DetailsEducationalPlatformsResource
+            
+________________________________________________________________
+
+-- Podcasts
+    -- response
+        status
+        message
+        data => PodcastsResource
+         
+________________________________________________________________
+
+-- PodcastDetails
+    - input
+            -- podcast_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => PodcastDetailsResource
+
+________________________________________________________________
+
+-- CategoryStores
+    -- response
+        status
+        message
+        data => CategoryStoresResource
+
+________________________________________________________________
+
+-- StoreData
+    - input
+            -- category_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => List<StoreDataResource>
+            
+________________________________________________________________
+
+-- DetailsStoreData
+    -- response
+        status
+        message
+        data => DetailsStoreDataResource
+
+________________________________________________________________
+
+-- AddReview
+    - input
+            -- store_id               => Int
+            -- rate                   => Int
+            -- text                   => Int
+    
+    - output
+        -- response
+            status
+            message
+
+________________________________________________________________
+
+-- Cart
+    -- response
+        status
+        message
+        data => CartResource
+
+________________________________________________________________
+
+-- CenterHeader
+
+-- response
+    status
+    message
+    data => CenterHeaderResource
+    
+________________________________________________________________
+
+-- CenterGoals
+
+-- response
+    status
+    message
+    data => CenterGoalsResource
+    
+________________________________________________________________
+
+-- DoctorData
+    - input
+            -- doctor_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => DoctorDataResource
+
+________________________________________________________________
+
+-- CertificatesDoctor
+    - input
+            -- doctor_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => CertificatesDoctorResource
+            
+________________________________________________________________
+
+-- ExperiencesDoctor
+    - input
+            -- doctor_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => ExperiencesDoctorResource
+    
+________________________________________________________________
+
+-- Blogs
+
+-- response
+    status
+    message
+    data => List<BlogsResource>
+    
+________________________________________________________________
+
+-- BlogsDetails
+
+    - input
+        -- blog_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => BlogsDetailsResource
+    
+________________________________________________________________
+
+-- Consulting
+
+    - input
+        -- blog_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => List<ConsultingResource>
+            
+________________________________________________________________
+
+-- ConsultingDoctors
+
+    - input
+        -- consulting_id               => Int
+    
+    - output
+        -- response
+            status
+            message
+            data => ConsultingDoctorsResource
+            
+________________________________________________________________
+
+-- RequestConsulting
+
+    - input
+        -- doctor_id               => Int
+        -- type_id                 => Int
+        -- date                    => String
+        -- time_id                 => Int
+        -- name                    => String
+        -- phone                   => String
+    
+    - output
+        -- response
+            status
+            message
+            data => ConsultingDoctorsResource
+                     
+________________________________________________________________
+
+-- Login
+
+    - input
+        -- email                   => String
+        -- password                => String
+    
+    - output
+        -- response
+            status
+            message
+                   
+________________________________________________________________
+
+-- Register
+
+    - input
+        -- name                    => String
+        -- email                   => String
+        -- password                => String
+    
+    - output
+        -- response
+            status
+            message
+              
+________________________________________________________________
+
+-- RememberPassword
+
+    - input
+        -- email                   => String
+    
+    - output
+        -- response
+            status
+            message
+              
+________________________________________________________________
+
+-- VerficationCode
+
+    - input
+        -- email                   => String
+        -- code                    => Int
+    
+    - output
+        -- response
+            status
+            message
+
+________________________________________________________________
+
+-- NewPassword
+
+    - input
+        -- email                   => String
+        -- password                => String
+    
+    - output
+        -- response
+            status
+            message
+            
+____________________________________________________________
+
+-- Profile
+    -- response
+        status
+        message
+        data => ProfileResource
+                        
+____________________________________________________________
+
+-- UpdateProfile
+
+    - input
+        -- name                    => String
+        -- phone                   => String
+        -- email                   => String
+        -- gender                  => String
+        -- age                     => String
+        -- illnesses               => String
+    
+    - output
+        -- response
+            status
+            message
+
+____________________________________________________________
+
+-- ChangePassword
+    - input
+        -- old_password            => String
+        -- new_password            => String
+
+    - output
+        -- response
+            status
+            message
+            
+____________________________________________________________
+
+-- Reservations
+    -- response
+        status
+        message
+        data => List<ReservationsResource>
+        
+____________________________________________________________
+
+-- CancelReservations
+    - input
+        -- reservation_id                    => Int
+
+    - output
+        -- response
+            status
+            message        
+
+____________________________________________________________
+
+-- RepeatReservations
+    - input
+        -- reservation_id                    => Int
+
+    - output
+        -- response
+            status
+            message
+
+____________________________________________________________
+
+-- DetailsReservations
+    - input
+        -- reservation_id                    => Int
+
+    - output
+        -- response  
+            status
+            message
+            data => DetailsReservationsResource
+
+____________________________________________________________
+
+CoursesJoined
+    -- response  
+        status
+        message
+        data => List<CoursesJoinedResource>
+        
+____________________________________________________________
+
+DetailsCourses
+    - input
+        -- course_id                    => Int
+
+    - output
+        -- response  
+            status
+            message
+            data => DetailsCoursesResource
+
+____________________________________________________________
+
+MyBooks
+    -- response
+        status
+        message
+        data => List<MyBooksResource>
+        
+____________________________________________________________
+
+RateBook
+    - input
+        -- book_id                    => Int
+        -- rate                       => Int
+        -- text                       => String
+
+    - output
+        -- response  
+            status
+            message
+
+
+
+_____________________________________________________________________________________________________________________________________________________________
+
+
+____________________________ Resource ____________________________
+
+-- HeaderResource
+    image                         => String
+    title                         => String
+    text                          => String
+
+----------------------------------------------------------------
+
+-- AvailableFeaturesResource
+    title                         => String
+    text                          => String
+    features                      List<FeatureList>
+
+        -- FeatureList
+            image                         => String
+            title                         => String
+            text                          => String
+            
+----------------------------------------------------------------
+
+-- AboutDoctorHomeResource
+    title                         => String
+    text                          => String
+    image                         => String
+
+----------------------------------------------------------------
+
+-- EducationalPlatformsHomeResource
+    title                         => String
+    text                          => String
+    cards                         List<CardsPlatforms>
+
+        -- CardsPlatforms
+            image                         => String
+            title                         => String
+            lesson_number                 => Int
+            total_hours                   => Int
+            price                         => Int
+
+----------------------------------------------------------------
+
+-- PodcastHomeResource
+    image                         => String
+    title                         => String
+    text                          => String
+    podcasts                      List<ListPodacasts>
+
+        -- ListPodacasts
+            image                         => String
+            title                         => String
+            date                          => created_at and updated_at
+            link                          => String
+
+----------------------------------------------------------------
+
+-- SpecialAdviceResource
+    image                         => String
+    title                         => String
+    text                          => String
+    phone                         => String
+    
+----------------------------------------------------------------
+
+-- StoreHomeResource
+    title                         => String
+    text                          => String
+    stores                        List<ListStores>
+
+        -- ListStores
+            image                         => String
+            title                         => String
+            link                          => String
+            price                         => Int
+            
+----------------------------------------------------------------
+
+-- ConsultingCenterResource
+    image                         => String
+    title                         => String
+    text                          => String
+    cards                         List<CardsConsultingList>
+
+        -- CardsConsultingList
+            image                         => String
+            title                         => String
+            text                          => String
+   
+----------------------------------------------------------------
+
+-- DoctorsHomeResource
+    title                         => String
+    text                          => String
+    cards                         List<CardsDoctorsList>
+
+        -- CardsDoctorsList
+            image                         => String
+            title                         => String
+            text                          => String
+            rate                          => String
+            price                         => Int
+
+----------------------------------------------------------------
+
+-- BlogsHomeResource
+    title                         => String
+    text                          => String
+    cards                         List<CardsBlogsList>
+
+        -- CardsBlogsList
+            image                         => String
+            title                         => String
+            date                          => created_at and updated_at
+            read_number                   => Int
+
+----------------------------------------------------------------
+
+-- AboutUsResource
+    image                         => String
+    title                         => String
+    text                          => String
+
+----------------------------------------------------------------
+
+-- WhyDoctorAboutResource
+    title                   => String
+    text                    => String
+    why_list                => List<WhyList>
+
+        -- WhyList
+            image               => String
+            title               => String
+            text                => String
+
+----------------------------------------------------------------
+
+-- CertificatesAboutResource
+    title                   => String
+    text                    => String
+    certificate             List<String>
+
+----------------------------------------------------------------
+
+-- ExperiencesAboutResource
+    title                   => String
+    text                    => String
+    experience              List<ExperienceList>
+
+        -- ExperienceList
+            title               => String
+            text                => String            
+
+----------------------------------------------------------------
+
+-- EducationalPlatformsResource
+    image                         => String
+    title                         => String
+    lesson_number                 => Int
+    total_hours                   => Int
+    price                         => Int
+    
+----------------------------------------------------------------
+
+-- DetailsEducationalPlatformsResource
+    image                         => String
+    video                         => String
+    title                         => String
+    text                          => String
+    course_duration               => String
+    lesson_number                 => Int
+    total_hours                   => Int
+    price                         => Int
+    related_course                List<EducationalPlatformsList>  // Return just 3 card
+
+        -- EducationalPlatformsList
+            image                         => String
+            title                         => String
+            lesson_number                 => Int
+            total_hours                   => Int
+            price                         => Int
+    
+----------------------------------------------------------------
+
+-- PodcastsResource
+    MostListened                  List<MostListened>
+        -- MostListened
+            image                         => String
+            title                         => String
+            text                          => String
+            time                          => String
+            date                          => created_at and updated_at
+
+    AllPodcast                    List<AllPodcast>
+        -- AllPodcast
+            image                         => String
+            title                         => String
+            text                          => String
+            time                          => String
+            date                          => created_at and updated_at
+
+----------------------------------------------------------------
+
+-- PodcastDetailsResource
+    image                         => String
+    title                         => String
+    text                          => String
+    link                          => String
+    date                          => created_at and updated_at
+    related_podcast               List<RelatedPodcast>
+
+        -- RelatedPodcast
+            image                         => String
+            title                         => String
+            text                          => String
+            date                          => created_at and updated_at
+            
+----------------------------------------------------------------
+
+-- CategoryStoresResource
+    id                            => Int
+    title                         => String
+
+----------------------------------------------------------------
+
+-- StoreDataResource
+    id                            => Int
+    image                         => String
+    title                         => String
+    price                         => String
+    link                          => String
+
+----------------------------------------------------------------
+
+-- DetailsStoreDataResource
+    id                            => Int
+    image                         => String
+    title                         => String
+    text                          => String
+    category                      => String
+    number_rate                   => String
+    average_rate                  => String
+    price                         => String
+    link                          => String
+    downloads                     => String
+    rates                         List<AllRates>
+    related                       List<RelatedStore>
+        
+        -- AllRates
+            id                            => Int
+            image                         => String
+            name                          => String
+            text                          => String
+            date                          => created_at and updated_at
+            buyer                         => Boolean
+        
+        -- RelatedStore
+            id                            => Int
+            image                         => String
+            title                         => String
+            price                         => String
+            link                          => String
+
+----------------------------------------------------------------
+
+-- CartResource
+    products                      List<CartProducts>
+    related                       List<RelatedProducts>
+    total_price                   => String
+    discount                      => String
+    product_price                 => String
+
+        -- CartProducts
+            id                            => Int
+            image                         => String
+            title                         => String
+            category                      => String
+            quantity                          => String
+
+        -- RelatedProducts
+            id                            => Int
+            image                         => String
+            title                         => String
+            price                         => String
+            link                          => String
+
+----------------------------------------------------------------
+
+-- CenterHeaderResource
+    image                         => String
+    title                         => String
+    text                          => String
+
+----------------------------------------------------------------
+
+-- CenterGoalsResource
+    image                         => String
+    title                         => String
+    text                          => String
+    goals                         List<GoalsList>
+
+        -- GoalsList
+            image                         => String
+            title                         => String
+            text                          => String
+
+----------------------------------------------------------------
+
+-- DoctorDataResource
+    id                            => String
+    image                         => String
+    title                         => String
+    category                      => String
+    text                          => String                 
+    rate                          => String                 
+
+----------------------------------------------------------------
+
+-- CertificatesDoctorResource
+    title                   => String
+    text                    => String
+    certificate             List<String>
+
+----------------------------------------------------------------
+
+-- ExperiencesDoctorResource
+    title                   => String
+    text                    => String
+    experience              List<ExperienceDoctorList>
+
+        -- ExperienceDoctorList
+            title               => String
+            text                => String            
+
+----------------------------------------------------------------
+
+-- BlogsResource
+    id                            => String
+    image                         => String
+    title                         => String
+    text                          => String
+    date                          => created_at and updated_at
+    read_number                   => Int
+
+----------------------------------------------------------------
+
+-- BlogsDetailsResource
+    id                            => String
+    image                         => String
+    title                         => String
+    text                          => String
+    related                       List<RelatedBlogs>
+
+        -- RelatedBlogs
+            id                            => String
+            image                         => String
+            title                         => String
+            text                          => String
+            date                          => created_at and updated_at
+            read_number                   => Int
+
+----------------------------------------------------------------
+
+-- ConsultingResource
+    id                            => String
+    image                         => String
+    title                         => String
+    price                         => String
+
+----------------------------------------------------------------
+
+-- ConsultingDoctorsResource
+    id                            => String
+    doctors                       List<DoctorsList>
+
+        -- DoctorsList
+            id                            => String
+            image                         => String
+            text                          => String
+            text                          => String
+            category                      => String
+            price                         => String
+            rate                          => String
+
+----------------------------------------------------------------
+
+-- ProfileResource
+    name                          => String
+    phone                         => String
+    email                         => String
+    gender                        => String
+    age                           => String
+    illnesses                     => String
+    
+----------------------------------------------------------------
+
+-- ReservationsResource
+    id                            => String
+    image                         => String
+    name                          => String
+    category                      => String
+    text                          => String
+    type                          => Int
+    date                          => String
+    status                        => Int
+
+----------------------------------------------------------------
+
+-- DetailsReservationsResource
+    id                            => String
+    image                         => String
+    name                          => String
+    category                      => String
+    text                          => String
+    type                          => Int
+    date                          => String
+    time                          => String
+    status                        => Int
+    patient_complaint             => String
+    examination_result            => String
+    images                        <List>  
+
+----------------------------------------------------------------
+
+-- CoursesJoinedResource
+    id                            => String
+    image                         => String
+    title                         => String
+    lessons                       => String
+    hours                         => String
+
+----------------------------------------------------------------
+
+-- DetailsCoursesResource
+    id                            => String
+    image                         => String
+    video                         => String
+    title                         => String
+    lessons                       => String
+    hours                         => String
+    lessons                       List<LessonsList>
+
+        -- LessonsList
+            id                            => String
+            image                         => String
+            title                         => String
+            hours                         => String
+
+----------------------------------------------------------------
+
+-- MyBooksResource
+    id                            => String
+    image                         => String
+    title                         => String
+    link                          => String
