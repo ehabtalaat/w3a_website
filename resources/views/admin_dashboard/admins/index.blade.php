@@ -1,35 +1,34 @@
-@extends('Admin::layouts.index')
+@extends('layouts.admin_index')
  @section('content') 
- <section class="content_section">
-    <div class="row">
-        <div class="content_text">
-            <h4 class="main_header_text">
-                {{__('messages.admins')}}
-            </h4>
-
-        </div>
-        <div class="toolbar-btns">
-            <a href="{{route('admins.create')}}" class="create_btn">{{__('messages.add admin')}} </a>
-        </div>
-    </div>
-
-    <div class="card_content">
-        <div class="row">
-        {!! $dataTable->table([
+	<!--begin::Card-->
+    <div class="container">
+    <div class="card card-custom gutter-b">
+    
+        <div class="card-header flex-wrap py-3">
+										<div class="card-title">
+											<h3 class="card-label">{{__('messages.admins')}}
+</h3>
+										</div>
+										<div class="card-toolbar">
+										
+									
+                                            <a href="{{route('admins.create')}}" class="btn btn-light-success font-weight-bold">
+                               <i class="ki ki-plus icon-md mr-2"></i>{{__('messages.add')}}</a>
+											<!--end::Button-->
+										</div>
+									</div>
+        <div class="card-body">
+            <!--begin: Datatable-->
+          
+    {!! $dataTable->table([
                     
-            ],true) !!}
-        </div>
-    </div>
-</section>
-   
+                     ],true) !!}
+            <!--end: Datatable-->
+        
        
+    <!--end::Card-->
 @endsection
-@section('scripts')  
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
-<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+@section('scripts')   
 {{$dataTable->scripts()}} 
 
  @endsection 

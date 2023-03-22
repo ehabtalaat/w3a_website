@@ -1,46 +1,70 @@
+<!--end::Global Config-->
+	<!--begin::Footer-->
+  <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
+			<!--begin::Container-->
+			<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+				<!--begin::Copyright-->
+				<div class="text-dark order-2 order-md-1">
+					<!-- <span class="text-muted font-weight-bold mr-2">2021©</span>
+					<a href="#" target="_blank" class="text-dark-75 text-hover-primary">Crazyidea</a> -->
+				</div>
+				<!--end::Copyright-->
+				<!--begin::Nav-->
+				<div class="nav nav-dark">
+				</div>
+				<!--end::Nav-->
+			</div>
+			<!--end::Container-->
+		</div>
+		<!--end::Footer-->
+	</div>
+	<!--end::Wrapper-->
+	
 </div>
-</div>
-<!--content-->
-<div id="preloader"><lottie-player 
-    src="{{asset('lotti/loader.json')}}"  background="transparent"  speed="1"  style="width: 200px; height: 400px;"  loop  autoplay></lottie-player></div>
-</div>
-</main>
-@include("layouts.admin_includes.messages")
-<style>
-       #preloader {
-  /* background-image: url('../lf30_editor_vltgu0mr.json'); */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #fff;
-  background-size: 50%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 1000;
-} 
-</style>
+<!--begin::Global Theme Bundle(used by all pages)-->
+<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 
-    <script>
-          let loader = document.getElementById('preloader');
+<!--end::Global Theme Bundle-->
+<!-- <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script> -->
+<script src="{{asset('assets/js/bootstrap-select.min.js')}}"></script>
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+	<script src="{{asset('custom/app.js')}}"></script>
+<script>
+     $(".selectpicker").selectpicker();
+       $("div.hidden").clone(true);
+	   let loader = document.getElementById('preloader');
 window.addEventListener('load', function () {
   loader.style.display = 'none';
 });
-var loader1 = document.getElementById('preloader');
-   $("form").on("submit", function(){
-    
-  //e.preventDefault();
-  loader1.style.display = 'flex';
- 
-});
-$(".side_btn").click(function(){
-  $("#aside").toggle();
+$(document).ready(function() {
+  $('.summernote').summernote();
 });
     </script>
-@yield("scripts")
+@yield('scripts')
+<script>function print_now(data)
+	{
+	   
+	
+				 window.open(data, '_blank');
+	window.focus();
+	
+	}</script>
+
+@include("layouts.admin_includes.messages")
+
+<!--end::Page Scripts-->
 </body>
+<!--end::Body-->
+
 </html>
