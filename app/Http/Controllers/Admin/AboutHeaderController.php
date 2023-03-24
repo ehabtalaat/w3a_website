@@ -3,45 +3,45 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\AboutDoctor\UpdateRequest;
-use App\Models\AboutDoctor\AboutDoctor;
+use App\Http\Requests\Admin\AboutHeader\UpdateRequest;
+use App\Models\AboutHeader\AboutHeader;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class AboutDoctorController extends Controller
+class AboutHeaderController extends Controller
 {
-    protected $view = 'admin_dashboard.about_doctors.';
-    protected $route = 'about_doctors.';
+    protected $view = 'admin_dashboard.about_headers.';
+    protected $route = 'about_headers.';
 
     public function index()
     {
-        $about_doctor = AboutDoctor::firstOrNew();
-        return view($this->view . 'index', compact('about_doctor'));
+        $about_header = AboutHeader::firstOrNew();
+        return view($this->view . 'index', compact('about_header'));
     }
 
     
     public function update(UpdateRequest $request)
     {
-        $about_doctor = AboutDoctor::firstOrCreate();
+        $about_header = AboutHeader::firstOrCreate();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['title' => $request['title-' . $localeCode],
                                  'text' => $request['text-' . $localeCode],
           ];
         }
       
-        $about_doctor->update($data);
+        $about_header->update($data);
 
         $data_image = [];
 
         if ($request->hasFile('image')) {
-            $about_doctor->image ? delete_image($about_doctor->image->image) : null;
-            $data_image["image"] = upload_image($request->image, "about_doctors");
+            $about_header->image ? delete_image($about_header->image->image) : null;
+            $data_image["image"] = upload_image($request->image, "about_headers");
         }
 
 
         //save image 
-        $about_doctor->image()->updateOrCreate([
-            "imageable_id" => $about_doctor->id
+        $about_header->image()->updateOrCreate([
+            "imageable_id" => $about_header->id
         ],$data_image);
 
 

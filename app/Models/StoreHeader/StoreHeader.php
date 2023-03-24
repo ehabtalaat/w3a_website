@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\AboutDoctor;
+namespace App\Models\StoreHeader;
 
 use App\Models\Image\Image;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 
-class AboutDoctor extends Model
+class StoreHeader extends Model
 {
     use HasFactory,Translatable;
     public $translatedAttributes = ['title','text'];
-    protected $translationForeignKey = 'about_doctor_id';
-    protected $table = 'about_doctors';
+    protected $translationForeignKey = 'store_header_id';
+    protected $table = 'store_headers';
     protected $guarded = [];
     protected $with = ["image"];
 

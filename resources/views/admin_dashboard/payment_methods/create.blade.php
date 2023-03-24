@@ -22,56 +22,55 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.add about_doctor')}}</h3>
+			<h3 class="card-label"> {{__('messages.add payment_method')}}</h3>
 		</div>
 	</div>
  
  
     <div class="card-body">
-    <form method="post" action="{{route('about_doctors.update')}}" enctype="multipart/form-data">
-        @method('PUT')
+    <form method="post" action="{{route('payment_methods.store')}}" enctype="multipart/form-data">
     @csrf
+
     <div class="row">
         <div class="col-8 mx-auto">
         <div class="uploadOuter">
         <span class="dragBox" >
         
           Darg and Drop image here
-        <input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"   />
+        <input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"  />
         </span>
         </div>
         
         <div class="preview">
         @error('image') <span class="invalid-feedback">
         {{ $message }}</span> @enderror
-        @if($about_doctor->image)
-        <img src="{{$about_doctor->image->image_link}}">
-        @endif
         </div>
               </div>
+        
+        
+        
+                      
              
         </div>
 <div class="row">
-        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  <!-- For loop this div -->
-                  <div class="col-md-6 col-sm-12">
-                      <div class="form-group">
-                          <label>
-                          {{ __('messages.title_'.$localeCode) }} 
-                              <span class="text-danger"> ( {{ $localeCode }} )</span>
-                          </label>
-                          <input class="form-control   @error('title-' . $localeCode) is-invalid 
-                          @enderror" 
-                          required value="{{ $about_doctor->translate($localeCode)->title ?? ''}}"
-                          name="title-{{ $localeCode }}" >
-                  
-                           @error('title-' . $localeCode) <span class="invalid-feedback">
-                  {{ $message }}</span> @enderror
-                      </div>
-                  </div>
-                  @endforeach
-         
-                 
+               
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <!-- For loop this div -->
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label>
+                        {{ __('messages.title_'.$localeCode) }}
+                            <span class="text-danger"> ( {{ $localeCode }} )</span>
+                        </label>
+                        <input  class="form-control @error('title-' . $localeCode) is-invalid @enderror"
+                        name="title-{{ $localeCode }}" value="{{ old('title-' . $localeCode)}}"
+                          required>
+
+                         @error('title-' . $localeCode) <span class="invalid-feedback">
+                {{ $message }}</span> @enderror
+                    </div>
+                </div>
+                @endforeach
 
                 @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                 <!-- For loop this div -->
@@ -81,14 +80,16 @@
                         {{ __('messages.text_'.$localeCode) }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control  @error('text-' . $localeCode) is-invalid @enderror"
+                        <textarea   rows="6" class="form-control   @error('text-' . $localeCode) is-invalid @enderror"
                         name="text-{{ $localeCode }}"
-                         placeholder="{{ __('messages.text_'.$localeCode) }}" rows="7" required>{{ $about_doctor->translate($localeCode)->text ?? ""}}</textarea>
+                         placeholder="{{ __('messages.text_'.$localeCode) }}" required></textarea>
                          @error('text-' . $localeCode) <span class="invalid-feedback">
                 {{ $message }}</span> @enderror
                     </div>
                 </div>
                 @endforeach
+                
+
 </div>
   <button type="submit" class="btn btn-shadow btn-primary font-weight-bold mt-5">
           {{__('messages.save')}}

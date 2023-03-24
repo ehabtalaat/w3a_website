@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\TagDataTable;
+use App\DataTables\Admin\BookTypeDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tag\StoreRequest;
-use App\Http\Requests\Admin\Tag\UpdateRequest;
-use App\Models\Tag\Tag;
+use App\Http\Requests\Admin\BookType\StoreRequest;
+use App\Http\Requests\Admin\BookType\UpdateRequest;
+use App\Models\BookType\BookType;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class TagController extends Controller
+class BookTypeController extends Controller
 {
-    protected $view = 'admin_dashboard.tags.';
-    protected $route = 'tags.';
+    protected $view = 'admin_dashboard.book_types.';
+    protected $route = 'book_types.';
 
 
-    public function index(TagDataTable $dataTable)
+    public function index(BookTypeDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');
     }
@@ -36,7 +36,7 @@ class TagController extends Controller
         }
   
         //create
-       $tag = Tag::create($data);
+       $book_type = BookType::create($data);
 
     
 
@@ -49,14 +49,14 @@ class TagController extends Controller
     
     public function edit($id)
     {
-        $tag = Tag::whereId($id)->firstOrFail();
-        return view($this->view . 'edit' , compact('tag'));
+        $book_type = BookType::whereId($id)->firstOrFail();
+        return view($this->view . 'edit' , compact('book_type'));
     }
 
     
     public function update(UpdateRequest $request, $id)
     {
-        $tag = Tag::whereId($id)->first();
+        $book_type = BookType::whereId($id)->first();
 
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['title' => $request['title-' . $localeCode],
@@ -65,7 +65,7 @@ class TagController extends Controller
       
         //update
         
-        $tag->update($data);
+        $book_type->update($data);
 
       
         return redirect()->route($this->route."index")
@@ -75,10 +75,10 @@ class TagController extends Controller
     
     public function destroy($id)
     {
-        $tag = Tag::whereId($id)->first();
+        $book_type = BookType::whereId($id)->first();
 
         //delete
-        $tag->delete();
+        $book_type->delete();
         return response()->json(['status' => true]);
 
     }

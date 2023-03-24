@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\FeatureDataTable;
+use App\DataTables\Admin\ConsultationDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Feature\StoreRequest;
-use App\Http\Requests\Admin\Feature\UpdateRequest;
-use App\Models\Feature\Feature;
+use App\Http\Requests\Admin\Consultation\StoreRequest;
+use App\Http\Requests\Admin\Consultation\UpdateRequest;
+use App\Models\Consultation\Consultation;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class FeatureController extends Controller
+class ConsultationController extends Controller
 {
-    protected $view = 'admin_dashboard.features.';
-    protected $route = 'features.';
+    protected $view = 'admin_dashboard.consultations.';
+    protected $route = 'consultations.';
 
 
-    public function index(FeatureDataTable $dataTable)
+    public function index(ConsultationDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');
     }
@@ -35,9 +35,11 @@ class FeatureController extends Controller
                                     'title' => $request['title-' . $localeCode],
           ];
         }
+
+        $data["from_price"] = $request->from_price;
+        $data["to_price"] = $request->to_price;
   
-        //create
-       $feature = Feature::create($data);
+       $consultation = Consultation::create($data);
 
     
        $data_image = [];
@@ -45,12 +47,12 @@ class FeatureController extends Controller
        //update image
 
        if ($request->hasFile('image')) {
-           $data_image["image"] = upload_image($request->image, "features");
+           $data_image["image"] = upload_image($request->image, "consultations");
        }
 
 
        //save image 
-       $feature->image()->create($data_image);
+       $consultation->image()->create($data_image);
 
         return redirect()->route($this->route."index")
         ->with(['success'=> __("messages.createmessage")]);    
@@ -59,37 +61,38 @@ class FeatureController extends Controller
     
     public function edit($id)
     {
-        $feature = Feature::whereId($id)->firstOrFail();
-        return view($this->view . 'edit' , compact('feature'));
+        $consultation = Consultation::whereId($id)->firstOrFail();
+        return view($this->view . 'edit' , compact('consultation'));
     }
 
     
     public function update(UpdateRequest $request, $id)
     {
-        $feature = Feature::whereId($id)->first();
+        $consultation = Consultation::whereId($id)->first();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['text' => $request['text-' . $localeCode],
                                     'title' => $request['title-' . $localeCode],
           ];
         }
       
-        //update
+        $data["from_price"] = $request->from_price;
+        $data["to_price"] = $request->to_price;
         
-        $feature->update($data);
+        $consultation->update($data);
 
         $data_image = [];
 
         //update image
 
         if ($request->hasFile('image')) {
-            $feature->image ? delete_image($feature->image->image) : null;
-            $data_image["image"] = upload_image($request->image, "features");
+            $consultation->image ? delete_image($consultation->image->image) : null;
+            $data_image["image"] = upload_image($request->image, "consultations");
         }
 
 
         //save image 
-        $feature->image()->updateOrCreate([
-            "imageable_id" => $feature->id
+        $consultation->image()->updateOrCreate([
+            "imageable_id" => $consultation->id
         ],$data_image);
 
         return redirect()->route($this->route."index")
@@ -99,13 +102,10 @@ class FeatureController extends Controller
     
     public function destroy($id)
     {
-        $feature = Feature::whereId($id)->first();
+        $consultation = Consultation::whereId($id)->first();
+        $consultation->image ? delete_image($consultation->image->image) : null;
 
-        //delete image
-        $feature->image ? delete_image($feature->image->image) : null;
-
-        //delete
-        $feature->delete();
+        $consultation->delete();
         return response()->json(['status' => true]);
 
     }

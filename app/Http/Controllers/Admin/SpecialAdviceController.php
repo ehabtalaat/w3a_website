@@ -3,45 +3,45 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\AboutDoctor\UpdateRequest;
-use App\Models\AboutDoctor\AboutDoctor;
+use App\Http\Requests\Admin\SpecialAdvice\UpdateRequest;
+use App\Models\SpecialAdvice\SpecialAdvice;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class AboutDoctorController extends Controller
+class SpecialAdviceController extends Controller
 {
-    protected $view = 'admin_dashboard.about_doctors.';
-    protected $route = 'about_doctors.';
+    protected $view = 'admin_dashboard.special_advices.';
+    protected $route = 'special_advices.';
 
     public function index()
     {
-        $about_doctor = AboutDoctor::firstOrNew();
-        return view($this->view . 'index', compact('about_doctor'));
+        $special_advice = SpecialAdvice::firstOrNew();
+        return view($this->view . 'index', compact('special_advice'));
     }
 
     
     public function update(UpdateRequest $request)
     {
-        $about_doctor = AboutDoctor::firstOrCreate();
+        $special_advice = SpecialAdvice::firstOrCreate();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['title' => $request['title-' . $localeCode],
                                  'text' => $request['text-' . $localeCode],
           ];
         }
       
-        $about_doctor->update($data);
+        $special_advice->update($data);
 
         $data_image = [];
 
         if ($request->hasFile('image')) {
-            $about_doctor->image ? delete_image($about_doctor->image->image) : null;
-            $data_image["image"] = upload_image($request->image, "about_doctors");
+            $special_advice->image ? delete_image($special_advice->image->image) : null;
+            $data_image["image"] = upload_image($request->image, "special_advices");
         }
 
 
         //save image 
-        $about_doctor->image()->updateOrCreate([
-            "imageable_id" => $about_doctor->id
+        $special_advice->image()->updateOrCreate([
+            "imageable_id" => $special_advice->id
         ],$data_image);
 
 

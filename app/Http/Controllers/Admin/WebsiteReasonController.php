@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\FeatureDataTable;
+use App\DataTables\Admin\WebsiteReasonDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Feature\StoreRequest;
-use App\Http\Requests\Admin\Feature\UpdateRequest;
-use App\Models\Feature\Feature;
+use App\Http\Requests\Admin\WebsiteReason\StoreRequest;
+use App\Http\Requests\Admin\WebsiteReason\UpdateRequest;
+use App\Models\WebsiteReason\WebsiteReason;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class FeatureController extends Controller
+class WebsiteReasonController extends Controller
 {
-    protected $view = 'admin_dashboard.features.';
-    protected $route = 'features.';
+    protected $view = 'admin_dashboard.website_reasons.';
+    protected $route = 'website_reasons.';
 
 
-    public function index(FeatureDataTable $dataTable)
+    public function index(WebsiteReasonDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');
     }
@@ -36,8 +36,7 @@ class FeatureController extends Controller
           ];
         }
   
-        //create
-       $feature = Feature::create($data);
+       $website_reason = WebsiteReason::create($data);
 
     
        $data_image = [];
@@ -45,12 +44,12 @@ class FeatureController extends Controller
        //update image
 
        if ($request->hasFile('image')) {
-           $data_image["image"] = upload_image($request->image, "features");
+           $data_image["image"] = upload_image($request->image, "website_reasons");
        }
 
 
        //save image 
-       $feature->image()->create($data_image);
+       $website_reason->image()->create($data_image);
 
         return redirect()->route($this->route."index")
         ->with(['success'=> __("messages.createmessage")]);    
@@ -59,37 +58,36 @@ class FeatureController extends Controller
     
     public function edit($id)
     {
-        $feature = Feature::whereId($id)->firstOrFail();
-        return view($this->view . 'edit' , compact('feature'));
+        $website_reason = WebsiteReason::whereId($id)->firstOrFail();
+        return view($this->view . 'edit' , compact('website_reason'));
     }
 
     
     public function update(UpdateRequest $request, $id)
     {
-        $feature = Feature::whereId($id)->first();
+        $website_reason = WebsiteReason::whereId($id)->first();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['text' => $request['text-' . $localeCode],
                                     'title' => $request['title-' . $localeCode],
           ];
         }
       
-        //update
         
-        $feature->update($data);
+        $website_reason->update($data);
 
         $data_image = [];
 
         //update image
 
         if ($request->hasFile('image')) {
-            $feature->image ? delete_image($feature->image->image) : null;
-            $data_image["image"] = upload_image($request->image, "features");
+            $website_reason->image ? delete_image($website_reason->image->image) : null;
+            $data_image["image"] = upload_image($request->image, "website_reasons");
         }
 
 
         //save image 
-        $feature->image()->updateOrCreate([
-            "imageable_id" => $feature->id
+        $website_reason->image()->updateOrCreate([
+            "imageable_id" => $website_reason->id
         ],$data_image);
 
         return redirect()->route($this->route."index")
@@ -99,13 +97,10 @@ class FeatureController extends Controller
     
     public function destroy($id)
     {
-        $feature = Feature::whereId($id)->first();
+        $website_reason = WebsiteReason::whereId($id)->first();
+        $website_reason->image ? delete_image($website_reason->image->image) : null;
 
-        //delete image
-        $feature->image ? delete_image($feature->image->image) : null;
-
-        //delete
-        $feature->delete();
+        $website_reason->delete();
         return response()->json(['status' => true]);
 
     }

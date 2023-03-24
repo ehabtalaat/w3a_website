@@ -18,11 +18,11 @@ class Authenticate extends Middleware
             return route('token_invalid'); 
         } 
         if (! $request->expectsJson()) {
-            if ($request->is('*/admin/*') || $request->is('/admin') || $request->is('*/admin')) {
-            return route('admin_loginpage');
-        }else  if ($request->is('*/pharmacy/*') || $request->is('/pharmacy') || $request->is('*/pharmacy')) {
-            return route('pharmacy_login');
-        }
+        //     if ($request->is('*/admin/*') || $request->is('/admin') || $request->is('*/admin')) {
+        //     return route('admin_loginpage');
+        // }else  if ($request->is('*/pharmacy/*') || $request->is('/pharmacy') || $request->is('*/pharmacy')) {
+        //     return route('pharmacy_login');
+        // }
     }
 }
 }

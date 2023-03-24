@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Models\AboutDoctor;
+namespace App\Models\PaymentMethod;
 
 use App\Models\Image\Image;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Astrotomic\Translatable\Translatable;
 
-class AboutDoctor extends Model
+class PaymentMethod extends Model
 {
     use HasFactory,Translatable;
-    public $translatedAttributes = ['title','text'];
-    protected $translationForeignKey = 'about_doctor_id';
-    protected $table = 'about_doctors';
     protected $guarded = [];
+    protected $table = 'payment_methods';
+    public $translatedAttributes = ['title','text'];
+    protected $translationForeignKey = 'payment_method_id';
+    
     protected $with = ["image"];
 
     public function image()

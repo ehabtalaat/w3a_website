@@ -22,13 +22,13 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.add about_doctor')}}</h3>
+			<h3 class="card-label"> {{__('messages.add special_advice')}}</h3>
 		</div>
 	</div>
  
  
     <div class="card-body">
-    <form method="post" action="{{route('about_doctors.update')}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('special_advices.update')}}" enctype="multipart/form-data">
         @method('PUT')
     @csrf
     <div class="row">
@@ -44,8 +44,8 @@
         <div class="preview">
         @error('image') <span class="invalid-feedback">
         {{ $message }}</span> @enderror
-        @if($about_doctor->image)
-        <img src="{{$about_doctor->image->image_link}}">
+        @if($special_advice->image)
+        <img src="{{$special_advice->image->image_link}}">
         @endif
         </div>
               </div>
@@ -62,7 +62,7 @@
                           </label>
                           <input class="form-control   @error('title-' . $localeCode) is-invalid 
                           @enderror" 
-                          required value="{{ $about_doctor->translate($localeCode)->title ?? ''}}"
+                          required value="{{ $special_advice->translate($localeCode)->title ?? ''}}"
                           name="title-{{ $localeCode }}" >
                   
                            @error('title-' . $localeCode) <span class="invalid-feedback">
@@ -83,7 +83,7 @@
                         </label>
                         <textarea  class="form-control  @error('text-' . $localeCode) is-invalid @enderror"
                         name="text-{{ $localeCode }}"
-                         placeholder="{{ __('messages.text_'.$localeCode) }}" rows="7" required>{{ $about_doctor->translate($localeCode)->text ?? ""}}</textarea>
+                         placeholder="{{ __('messages.text_'.$localeCode) }}" rows="7" required>{{ $special_advice->translate($localeCode)->text ?? ""}}</textarea>
                          @error('text-' . $localeCode) <span class="invalid-feedback">
                 {{ $message }}</span> @enderror
                     </div>
