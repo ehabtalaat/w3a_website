@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AboutHeaderController;
 use App\Http\Controllers\Admin\AboutPodcastController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BookTypeController;
+use App\Http\Controllers\Admin\CenterConsultingController;
 use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeatureController;
@@ -104,4 +105,13 @@ Route::group(
 
          //consultations 
          Route::resource("consultations",ConsultationController::class); 
+
+
+               
+    //center_consultings
+     Route::group(['controller' => CenterConsultingController::class], function () {
+      Route::get("center_consultings", "index")->name("center_consultings.index");
+
+      Route::put("center_consultings/update", "update")->name("center_consultings.update");
+      });
   });
