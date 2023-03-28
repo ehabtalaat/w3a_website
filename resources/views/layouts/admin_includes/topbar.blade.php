@@ -9,11 +9,11 @@ $flag = LaravelLocalization::getCurrentLocale() == "ar" ? asset('assets/media/sv
     <div class="dropdown">
         <!--begin::Toggle-->
         <!-- <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px"> -->
-        {{-- <a class="nav-link mt-4" href="{{ LaravelLocalization::getLocalizedURL(strtolower($other_locale), null, [], true) }}">
+        <a class="nav-link mt-4" href="{{ LaravelLocalization::getLocalizedURL(strtolower($other_locale), null, [], true) }}">
 
             <img class="h-20px w-20px rounded-sm" src="{{$flag}}" alt="" />
             <!-- {{$other_locale}} -->
-        </a> --}}
+        </a>
         <!-- <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
 
 
@@ -57,7 +57,7 @@ href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
                 <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
                 </span>
                 <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                    <img alt="Logo" src="{{asset('logo.JFIF')}}" /></span>
+                    <img alt="Logo" src="{{asset('uploads/logo.png')}}" /></span>
 
             </div>
         </div>

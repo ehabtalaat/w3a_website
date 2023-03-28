@@ -6,6 +6,66 @@
 		<ul class="menu-nav">
 	
 			
+
+			<li class="menu-section">
+				<h4 class="menu-text">{{__('messages.website_settings')}}</h4>
+				<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+			</li>
+ 
+			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+				<a href="javascript:;" class="menu-link menu-toggle">
+					<span class="svg-icon menu-icon">
+					<i class="fas fa-cogs"></i>
+					</span>
+					<span class="menu-text">{{__('messages.website_settings')}}</span>
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="menu-submenu">
+					<i class="menu-arrow"></i>
+					<ul class="menu-subnav">
+						<li class="menu-item menu-item-parent" aria-haspopup="true">
+							<span class="menu-link">
+								<span class="menu-text">{{__('messages.website_settings')}}</span>
+							</span>
+						</li>
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('main_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.main_headers')}}</span>
+							</a>
+						</li>
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('about_doctors.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.about_doctors')}}</span>
+							</a>
+						</li>
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('about_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.about_headers')}}</span>
+							</a> 
+						</li>
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('special_advices.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.special_advices')}}</span>
+							</a>
+						</li>
+
+
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('experiences.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.experiences')}}</span>
+							</a>
+						</li>
+
+
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('center_consultings.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.center_consultings')}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			
 		</ul>
 		<!--end::Menu Nav-->
 	</div>

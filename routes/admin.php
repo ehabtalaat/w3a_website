@@ -4,13 +4,17 @@ use App\Http\Controllers\Admin\AboutDoctorController;
 use App\Http\Controllers\Admin\AboutHeaderController;
 use App\Http\Controllers\Admin\AboutPodcastController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookTypeController;
 use App\Http\Controllers\Admin\CenterConsultingController;
 use App\Http\Controllers\Admin\ConsultationController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\MainHeaderController;
 use App\Http\Controllers\Admin\PaymentMethodController;
+use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\SpecialAdviceController;
 use App\Http\Controllers\Admin\StoreHeaderController;
 use App\Http\Controllers\Admin\TagController;
@@ -114,4 +118,33 @@ Route::group(
 
       Route::put("center_consultings/update", "update")->name("center_consultings.update");
       });
+
+         //courses 
+         Route::resource("courses",CourseController::class); 
+
+
+         
+            //lessons
+            Route::group(['controller' => LessonController::class], function () {
+               Route::get("lessons/{id}", "index")->name("lessons.index");
+
+               Route::get("lessons/create/{id}", "create")->name("lessons.create");
+
+               Route::post("lessons/store/{id}", "store")->name("lessons.store");
+
+               Route::get("lessons/edit/{id}", "edit")->name("lessons.edit");
+
+               Route::put("lessons/update/{id}", "update")->name("lessons.update");
+
+               Route::delete("lessons/{id}", "destroy")->name("lessons.destroy");
+
+           });
+
+            //podcasts 
+         Route::resource("podcasts",PodcastController::class); 
+
+
+         
+            //books 
+            Route::resource("books",BookController::class); 
   });

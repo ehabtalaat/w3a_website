@@ -44,7 +44,7 @@ return new class extends Migration
 
             $table->foreign('book_type_id')->references('id')->on('book_types')
             ->onUpdate('cascade')
-            ->onDelete('cascade');
+            ->onDelete('cascade'); 
         });
         
         Schema::create('book_translations', function (Blueprint $table) {
