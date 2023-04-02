@@ -43,12 +43,9 @@ return [
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'doctors',
         ],
-        'pharmacy' => [
-            'driver' => 'session',
-            'provider' => 'pharmacy_employees',
-        ],
+      
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -77,13 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => PharmacyApi\Models\User\User::class,
         ],
-        'pharmacy_employees' => [
+   
+        'doctors' => [
             'driver' => 'eloquent',
-            'model' => Admin\Models\Pharmacy\PharmacyEmployee::class,
-        ],
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => Admin\Models\Admin::class,
+            'model' => App\Models\Doctor\Doctor::class,
         ],
 
 

@@ -31,73 +31,81 @@
     <form method="post" action="{{route('admins.update',$admin->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-      <div class="row">
-<div class="col-8 mx-auto">
-<div class="uploadOuter">
-<span class="dragBox" >
-
-  Darg and Drop image here
-<input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"   />
-</span>
-</div>
-
-<div class="preview">
-@error('image') <span class="invalid-feedback">
-{{ $message }}</span> @enderror
-@if($admin->image_link)
-<img src="{{$admin->image_link}}">
-@endif
-</div>
-      </div>
-     
-</div>
-<div class="row">
-         <div class="col-6">
-           <label>{{__('messages.name')}}</label>
-           <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"  
-           value="{{ $admin->name}}" required>
-           @error('name') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-      </div>
-      <div class="col-6">
-           <label>{{__('messages.phone')}}</label>
-           <input type="number" class="form-control @error('phone') is-invalid @enderror" 
-           name="phone" 
-           value="{{ $admin->phone}}" required/>
-            @error('phone') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-                      
-      </div>
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-            <label>
-                {{__('messages.roles')}}
-            </label>
-         <select class="form-control selectpicker
-          @error('role_id') is-invalid @enderror" name="role" id="role"
-          data-live-search="true"  title="&nbsp;" >
-
-         @foreach($roles as $role)
-            <option value="{{$role->name}}" @selected($admin->hasRole($role->name))>{{$role->name}}</option>
-         @endforeach
-         </select>
-             @error('role_id') <span class="invalid-feedback">
-                    {{ $message }}</span> @enderror
+    <div class="row">
+        <div class="col-8 mx-auto">
+        <div class="uploadOuter">
+        <span class="dragBox" >
+        
+          Darg and Drop image here
+        <input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"   />
+        </span>
         </div>
+        
+        <div class="preview">
+        @error('image') <span class="invalid-feedback">
+        {{ $message }}</span> @enderror
+        @if($admin->image)
+        <img src="{{$admin->image->image_link}}">
+        @endif
+        </div>
+              </div>
+             
+        </div>
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+
+        <label>{{__('messages.name')}}</label>
+        <input type="text" class="form-control @error('name') is-invalid @enderror" 
+        name="name" 
+        value="{{ $admin->name}}" required/>
+         @error('name') <span class="invalid-feedback">
+             {{ $message }}</span> @enderror        
+   </div>
     </div>
-      <div class="col-6">
-           <label>{{__('messages.password')}}</label>
-           <input type="password" class="form-control  @error('password') is-invalid @enderror" 
-           name="password" 
-         >
-           @error('password') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-      </div>
+         
+                <div class="col-4">
+                    <div class="form_groub">
+
+                    <label>{{__('messages.phone')}}</label>
+                    <input type="number" class="form-control @error('phone') is-invalid @enderror" 
+                    name="phone" 
+                    value="{{$admin->phone}}" required/>
+                     @error('phone') <span class="invalid-feedback">
+                         {{ $message }}</span> @enderror        
+               </div>
+            </div>
+
+                <div class="col-4">
+                    <div class="form_groub">
+
+                    <label>{{__('messages.email')}}</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                    name="email" 
+                    value="{{$admin->email}}" required/>
+                    @error('email') <span class="invalid-feedback">
+                     {{ $message }}</span> @enderror  
+               </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form_groub">
+
+                <label>{{__('messages.password')}}</label>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                name="password" 
+              />
+                @error('password') <span class="invalid-feedback">
+                 {{ $message }}</span> @enderror  
+           </div>
+        </div>
+             
+        
+                
 </div>
 
 
-
-
+        
   <button type="submit" class="btn btn-shadow btn-primary font-weight-bold mt-5">
           {{__('messages.save')}}
            <span class="svg-icon svg-icon m-0 svg-icon-md">
@@ -116,6 +124,4 @@
            
        </button>
  </form>
-
- <!--end::Form-->
-@endsection
+ @endsection

@@ -29,4 +29,9 @@ class Course extends Model
         return $this->video ? asset($this->video) : '';
     }
 
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
 }

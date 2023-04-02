@@ -22,7 +22,7 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.add center_consulting')}}</h3>
+			<h3 class="card-label"> {{__('messages.center_consulting')}}</h3>
 		</div>
 	</div>
  

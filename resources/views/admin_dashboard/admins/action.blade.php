@@ -1,4 +1,4 @@
-<a href="{{route('admins.edit',$id)}}" class="btn btn-sm btn-hover-bg-light m-0">
+   <a href="{{route('admins.edit',$id)}}" class="btn btn-sm btn-hover-bg-light m-0">
                                 
                                 <span class="svg-icon svg-icon-primary m-0 p-0 svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -10,8 +10,8 @@
                                     </svg>
                                 </span>
                                 
-                            </a>
-                         @if(auth()->id() != $id)
+                </a>
+        
                             <div style="cursor:pointer;" onclick="deleteadmins({{$id}})" class="btn btn-sm btn-hover-bg-light mr-1">
                                 <span class="svg-icon svg-icon-danger m-0 p-0 svg-icon-md"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-12-28-020759/theme/html/demo8/dist/../src/media/svg/icons/Home/Trash.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -23,10 +23,9 @@
                                     </svg><!--end::Svg Icon-->
                                 </span>
                             </div>
-                            @endif
                            
-                            <script>
-              function deleteadmins(id){
+<script>
+function deleteadmins(id){
 
  var table = $('.dataTable').DataTable();
  $.ajaxSetup({
@@ -68,4 +67,5 @@
     });
     }
   })
-}</script>
+}
+</script>

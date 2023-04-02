@@ -30,69 +30,89 @@
     <div class="card-body">
     <form method="post" action="{{route('admins.store')}}" enctype="multipart/form-data">
     @csrf
-      <div class="row">
-<div class="col-8 mx-auto">
-<div class="uploadOuter">
-<span class="dragBox" >
 
-  Darg and Drop image here
-<input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"  />
-</span>
-</div>
 
-<div class="preview">
-@error('image') <span class="invalid-feedback">
-{{ $message }}</span> @enderror
-</div>
-      </div>
-     
-</div>
-<div class="row">
-         <div class="col-6">
-           <label>{{__('messages.name')}}</label>
-           <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"  
-           value="{{ old('name')}}" required>
-           @error('name') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-      </div>
-      <div class="col-6">
-           <label>{{__('messages.phone')}}</label>
-           <input type="number" class="form-control @error('phone') is-invalid @enderror" 
-           name="phone" 
-           value="{{ old('phone')}}" required/>
-            @error('phone') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
+    <div class="row">
+        <div class="col-8 mx-auto">
+        <div class="uploadOuter">
+        <span class="dragBox" >
+        
+          Darg and Drop image here
+        <input type="file" name="image" onChange="dragNdrop(event)"  ondragover="drag()" ondrop="drop()"  />
+        </span>
+        </div>
+        
+        <div class="preview">
+        @error('image') <span class="invalid-feedback">
+        {{ $message }}</span> @enderror
+        </div>
+              </div>
+        
+        
+        
                       
-      </div>
+             
+        </div>
+<div class="row">
+
+    <div class="col-4">
+        <div class="form-group">
+
+        <label>{{__('messages.name')}}</label>
+        <input type="text" class="form-control @error('name') is-invalid @enderror" 
+        name="name" 
+        value="{{ old('name')}}" required/>
+         @error('name') <span class="invalid-feedback">
+             {{ $message }}</span> @enderror        
+   </div>
+    </div>
+        
+                <div class="col-4">
+                    <div class="form-group">
+
+                    <label>{{__('messages.phone')}}</label>
+                    <input type="number" class="form-control @error('phone') is-invalid @enderror" 
+                    name="phone" 
+                    value="{{ old('phone')}}" required/>
+                     @error('phone') <span class="invalid-feedback">
+                         {{ $message }}</span> @enderror        
+               </div>
+                </div>
+
+            <div class="col-4">
+                <div class="form-group">
+
+                <label>{{__('messages.email')}}</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                name="email" 
+                value="{{ old('email')}}" required/>
+                 @error('email') <span class="invalid-feedback">
+                     {{ $message }}</span> @enderror  
+                </div>
+           </div>
+
+           <div class="col-4">
+            <div class="form-group">
+
+            <label>{{__('messages.password')}}</label>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" 
+            name="password" 
+            value="{{ old('password')}}" required/>
+             @error('password') <span class="invalid-feedback">
+                 {{ $message }}</span> @enderror  
+            </div>
+       </div>
 
           
-      <div class="col-md-6 col-12">
-        <div class="form-group">
-            <label>
-                {{__('messages.roles')}}
-            </label>
-         <select class="form-control selectpicker
-          @error('role_id') is-invalid @enderror" name="role" id="role"
-          data-live-search="true"  title="&nbsp;" >
 
-         @foreach($roles as $role)
-            <option value="{{$role->name}}">{{$role->name}}</option>
-         @endforeach
-         </select>
-             @error('role_id') <span class="invalid-feedback">
-                    {{ $message }}</span> @enderror
-        </div>
+          
+
+        
+
+
     </div>
 
-      <div class="col-6">
-           <label>{{__('messages.password')}}</label>
-           <input type="password" class="form-control  @error('password') is-invalid @enderror" 
-           name="password" 
-           value="{{ old('password')}}" required>
-           @error('password') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-      </div>
-</div>
+    
 
 
 
@@ -114,6 +134,7 @@
            
        </button>
  </form>
+ @endsection
+ @section("scripts")
 
- <!--end::Form-->
-@endsection
+ 

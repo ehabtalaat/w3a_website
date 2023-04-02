@@ -26,9 +26,6 @@ class RedirectIfAuthenticated
                 // return redirect(RouteServiceProvider::HOME);
                 if($guard == "admin"){
                 return redirect(RouteServiceProvider::Admin);
-                }elseif($guard == "pharmacy"){
-                    return redirect(RouteServiceProvider::Pharmacy);
-
                 }
             }
         }

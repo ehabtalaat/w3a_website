@@ -22,7 +22,7 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.add store_header')}}</h3>
+			<h3 class="card-label"> {{__('messages.store_header')}}</h3>
 		</div>
 	</div>
  

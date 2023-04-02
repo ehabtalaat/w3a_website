@@ -22,7 +22,7 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.add about_podcast')}}</h3>
+			<h3 class="card-label"> {{__('messages.about_podcast')}}</h3>
 		</div>
 	</div>
  

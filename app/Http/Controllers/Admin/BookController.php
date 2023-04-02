@@ -131,7 +131,7 @@ class BookController extends Controller
                 'text' => $request['text-' . $localeCode],
             ];
         }
-
+ 
         if ($request->hasFile('pdf')) {
             $book->pdf ? delete_image($book->pdf) : "";
 

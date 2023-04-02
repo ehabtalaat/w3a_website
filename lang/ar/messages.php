@@ -34,30 +34,12 @@ return [
     'all' => 'الكل',
     'active' => 'مفعل',
     'inactive' => 'غير مفعل',
-    'countries' => 'الدول',
-    'states' => 'المحافظات',
-    'cities' => 'المدن',
-
-    'add country' => 'اضافه دوله',
-    'edit country' => 'تعديل دوله',
-
-    
-    'add state' => 'اضافه محافظه',
-    'edit state' => 'تعديل محافظه',
 
 
-    'add city' => 'اضافه مدينه',
-    'edit city' => 'تعديل مدينه',
-
-    "country" => "دوله",
-    "state" => "محافظه",
-    "city" => "مدينه",
+ 
 
     'settings' => 'الاعدادات',
-    "categories" => "الاقسام الرئيسيه",
-    "add category" => "اضافه قسم رئيسى",
-    "category" => "القسم الرئيسى",
-    "edit category" => "تعديل قسم رئيسي" ,
+
     'upload image' => "رفع صوره",
 
 
@@ -89,9 +71,6 @@ return [
     "logout successfully" => "تم تسجيل الخروج بنجاح",
     "name or password may be wrong" => "قد يكون الاسم أو كلمة المرور خاطئين",
     "login successfully" => "تم تسجيل الدخول بنجاح" ,
-    "banners" => "سليدر التطبيق",
-    "add banner"=> "اضافه سليدر",
-    "edit banner"=> "تعديل سليدر",
     'youtube' => 'اليوتيوب',
     'twitter' => 'تويتر',
     'facebook' => 'فيسبوك',
@@ -115,219 +94,146 @@ return [
     "user" => "المستخدم",
     'doesnt have image' => "لا توجد صوره",
 
-    "pharmacies" => "الصيدليات",
-    "add pharmacy" => "اضافه  صيدليه",
-    "pharmacy" => "الصيدليه",
-    "edit pharmacy" => "تعديل  صيدليه" ,
 
-    "brands" => "العلامات التجارية",
-    "add brand" => "اضافه  علامه تجاريه",
-    "brand" => "علامه تجاريه",
-    "edit brand" => "تعديل  علامه تجاريه" ,
 
-    "features" => "مميزات المنتجات",
+
+
+    "features" => "مميزات الموقع ",
     "add feature" => "اضافه  ميزه",
     "add_feature" => "اضافه  ميزه",
     "feature" => "ميزه",
     "edit feature" => "تعديل  ميزه" ,
 
-    "subcategories" => "الاقسام الفرعيه",
-    "add subcategory" => "اضافه  قسم فرعى",
-    "subcategory" => "القسم الفرعى",
-    "edit subcategory" => "تعديل  قسم فرعى" ,
-
-    "products" => "المنتجات",
-    "add product" => "اضافه  منتج",
-    "product" => "منتج",
-    "edit product" => "تعديل  منتج" ,
-
-    "offers" => "العروض",
-    "add offer" => "اضافه  عرض",
-    "offer" => "عرض",
-    "edit offer" => "تعديل  عرض" ,
-
-    "employees" => "الموظفين",
-    "add employee" => "اضافه  موظف",
-    "employee" => "موظف",
-    "edit employee" => "تعديل  موظف" ,
-
-    "branches" => "الفروع",
-    "add branch" => "اضافه  فرع",
-    "branch" => "فرع",
-    "edit branch" => "تعديل  فرع" ,
 
     "users" => "المستخدمين",
-    
-    "discount" => "خصم",
-    "newest" => "الاحدث",
-    "oldest" => "الاقدم",
-    "expired_date" => "تاريخ انتهاء الخصم",
-    "optional" => "اختياري",
-    "stock" => "مخزون",
-    "currency_en" => "العمله بالانجليزي",
-    "currency_ar" => "العمله بالعربى",
+
 
     "edit settings" => "تعديل الاعدادات",
     "contact_description_en" => "تواصل معنا بالانجليزي",
     "contact_description_ar" => "تواصل معنا بالعربى",
 
-    "ee" => "ادخل البيانات التالية للأستمرار",
 
-    "number_of_paid_products" => "عدد المنتجات المدفوعه",
-    "number_of_free_products" => "عدد المنتجات المجانيه",
     "save_data" => "حفظ البيانات",
     "upload image" => "رفع صوره",
     'upload here' => "حمل من هنا",
-    "Search by product name" => "ابحث بإسم المنتج",
-    "Sort by" => "تصنيف حسب",
-    "on my way" => "فى الطريق",
-    "completed" => "مكتمل",
-    "done_deliverey" => "يتم التسليم",
-    "order_time" => "وقت الطلب",
-    "orders" => "الطلبات",
-    "delivery_prices" => "اسعار التوصيل",
-    "user_text" => "نص العميل",
-    "building_number" => "رقم المبنى",
-    "flat_number" => "رقم الشقه",
-    "floor_number" => "رقم الطابق",
-    "delivery_price" => "سعر التوصيل",
-    "base_price" => "السعر الاساسى",
-    "net_price" => " السعر الكلى",
-    "taxes_price" => "سعر الضريبه",
-    "discount_price" => "سعر الخصم",
-    "extra_price" => "سعر الزياده",
+
     "images" => "الصور",
-    "prescription_details" => "تفاصيل الروشته",
-    "address" => "العنوان",
-    "prescriptions" => "الروشتات",
-    "add_price" => "اضافه سعر",
-    "accept" => "قبول",
-    "count" => "العدد",
-    "order_details" => "تفاصيل الطلب",
+    
     "all_users" => "كل المستخدمين",
     "buyers" => "المشتريين",
-    "un buyers" => "غير المشتريين",
-    "registered users" => "المستخدمين  المسجلين",
-    "unregistered users" => "المستخدمين غير المسجلين",
-    "un buyers" => "غير المشتريين",
+
     "type" => "النوع",
     "send" => "ارسال",
     "show" => "اظهار",
     "returnable" => "قابل للارجاع",
-    "store_in_refrige" => "تحفظ فى الثلاجه",
-    "send notifications" => "ارسال اشعارات",
 
-    "return_reasons" => "اسباب الاسترجاع",
-    "add return_reason" => "اضافه سبب الاسترجاع",
-    "edit return_reason" => "تعديل سبب الاسترجاع",
-
-    "coupons" => "الكوبونات",
-    "add coupon" => "اضافه كوبون",
-    "edit coupon" => "تعديل كوبون",
-    "code" => "الكود",
     "value" => "القيمه",
     "from_date" => "من",
     "to_date" => "الى",
-    "minmum_price" => "اقل سعر",
-    "number_of_uses" => "عدد الاستخدمات",
-    "is_percentage" => "النسبه المئويه",
+
     "edit" => "تعديل",
     "delete" => "حذف", 
-    "expenses" => "المصروفات",
-    "reports" => "التقارير",
-    "add expense" => "اضافه مصروف",
-    "major_expenses" => "المصروفات الاساسيه",
-    "sub_expenses" => "المصروفات الفرعيه",
-    "major_expense" => "المصروف الاساسى",
-    "sub_expense" => "المصروف الفرعى",
-    "expense type" => "نوع المصروف",
-
-    "accounts" => "الحسابات",
-    "add account" => "اضافه حساب",
-    "major_accounts" => "الحسابات الاساسيه",
-    "sub_accounts" => "الحسابات الفرعيه",
-    "major_account" => "الحساب الاساسى",
-    "sub_account" => "الحساب الفرعى",
-    "account type" => "نوع الحساب",
-
-    "revenues" => "الإيرادات",
-    "add revenue" => "اضافه الإيراد",
-    "major_revenues" => "الإيرادات الاساسيه",
-    "sub_revenues" => "الإيرادات الفرعيه",
-    "major_revenue" => "الإيراد الاساسى",
-    "sub_revenue" => "الإيراد الفرعى",
-    "revenue type" => "نوع الإيراد",
-
-    "amount" => "القيمه",
-    "add receipt" => "اضافه سند شراء",
-    "edit receipt" => "تعديل سند شراء",
-    "receipts" => " سند شراء",
-    "receipt" => " سند شراء",
-    "add award_reason" => "اضافه سبب مكافاه",
-    "edit award_reason" => "تعديل سبب مكافاه",
-    "award_reasons" => "اسباب المكافاه",
-
-    "add deduction_reason" => "اضافه سبب خصم",
-    "edit deduction_reason" => "تعديل سبب خصم",
-    "deduction_reasons" => "اسباب خصم",
-    'statement' => 'بيان',
-    "by" => "بواسطه",
-    "expense_from" => "صرف القيد من",
-    "expense_to" => "صرف القيد الى",
-    "receipt_details" => "تفاصيل السند",
-    "daily_entry_details" => "تفاصيل القيد", 
-    "order_canceled" => "الطلب ملغى",
-    "reward" => "مكافاه",
-    "pay" => "قبض",
-    "value award" => "مكافاه قيمه",
-    "award per day" => "مكافاه باليوم",
-    "add_discount_to_employee" => "اضافه خصم للموظف",
-    "value discount" => "خصم قيمه",
-    "discount per day" => "خصم باليوم",
-    "discount type" => "نوع الخصم",
-    "reason" => "السبب",
-    'salary' => "الراتب",
-    "salary type" => "نوع الراتب",
-    "hourly" => "بالساعه",
-    "dayly" => "باليوم",
-    "monthly" => "بالشهر",
-    "salary_day_from" => "دفع المرتب من يوم",
-    "salary_day_to" => "دفع المرتب الى يوم",
-    "Please choose the number of days required" => "من فضلك اختر عدد الأيام المطلوبة لتطبيق الخصم ؟",
-    "Please choose the number of days required1" => "من فضلك اختر عدد الأيام المطلوبة لتطبيق المكافاه ؟",
+    
+  
 
     "day" => "يوم",
-    "add_award_to_employee"  => "اضافه مكافاه للموظف",
-    "award type" => "نوع المكافاه",
-    "absence type" => "نوع الغياب",
-    "absence_request" => "طلب غياب",
-    "employee_absence_request" => "طلب غياب للموظف",
-    "without_discount" => "بدون خصم",
-    "absence_discount" => "غياب بخصم",
-    "number_of_days" => "عدد الايام",
-    "awards" => "المكافاه",
-    "basic_salary" => "المرتب الاساسى",
-    "salary_due" => "المرتب المستحق",
-    "discounts" => "الخصومات",
-    "payment_employee" => "صرف قبض للموظف",
-    "absence_type" => "نوع الغياب",
-    "award_type" => "نوع المكافاه",
-    "award_reason" => "سبب المكافاه",
-    "deduction_reason" => "سبب الخصم",
-    "discount_type" => "نوع الخصم",
-    "done_success" => "تم بنجاح",
-    "accounting_settings" => "اعدادات الحسابات",
-    "details_general" => "التفاصيل العامة",
-    "del_details" => "تفاصيل الاستلام",
-    "price_details" => "تفاصيل السعر",
-    "order_number" => "رقم الطلب",
-    "order_date" => "تاريخ الطلب",
-    "number_of_products" => "عدد المنتجات",
-    "order_status" => "حاله الطلب",
-    "order_details" => "تفاصيل الطلب",
-    "quantity" => "الكميه",
-    "payment_method" => "طريقه الدفع"
+   
+    "add consultation" => "اضافه  استشاره طبيه",
+    "add_consultation" => "اضافه  استشاره طبيه",
+    "consultation" => "استشاره طبيه",
+    "consultations" => "استشارات طبيه",
+    "edit consultation" => "تعديل  استشاره طبيه" ,
+    
+    "add doctor" => "اضافه  طبيب",
+    "doctor" => "طبيب",
+    "edit doctor" => "تعديل  طبيب" ,
+    "doctors" => "الاطباء",
+    "website_settings" => "اعدادات الموقع",
+
+    "add book_type" => "اضافه  نوع كتاب",
+    "book_type" => "نوع الكتاب",
+    "edit book_type" => "تعديل  نوع كتاب" ,
+    "book_types" => "انواع الكتب",
+
+    "add payment_method" => "اضافه وسيله دفع ",
+    "payment_method" => "وسيله دفع",
+    "edit payment_method" => "تعديل  وسيله دفع" ,
+    "payment_methods" => "وسائل الدفع",
+
+
+    "add tag" => "اضافه وسم ",
+    "tag" => "وسم",
+    "edit tag" => "تعديل وسم" ,
+    "tags" => "الوسوم",
+
+    "add website_reason" => "اضافه سبب استخدام ",
+    "website_reason" => "سبب استخدام",
+    "edit website_reason" => "تعديل سبب استخدام" ,
+    "website_reasons" => "اسباب استخدام الموقع",
+
+    "main_headers" => "الهيدر الرئيسى",
+    "main_header" => "الهيدر الرئيسى",
+
+    "store_headers" => "هيدر المتجر",
+    "store_header" => "هيدر المتجر",
+
+    "about_headers" => "هيدر عن الموقع",
+    "about_header" => "هيدر عن الموقع",
+
+    "about_doctors" =>  "قسم عن الاطباء",
+    "about_doctor" =>  "قسم عن الاطباء",
+
+    "special_advices" =>  "قسم نصائح خاصه",
+    "special_advice" =>  "قسم نصائح خاصه",
+
+    "add experience" => "اضافه خبره للموقع",
+    "experience" => "خبره الموقع",
+    "edit experience" => "تعديل  خبره الموقع" ,
+    "experiences" => "خبرات الموقع",
+
+    "center_consultings" => "قسم استشارات الموقع",
+    "center_consulting" => "قسم استشارات الموقع",
+
+    "about_podcasts" => "قسم عن البودكاست",
+    "about_podcast" => "قسم عن البودكاست",
+
+    "add book" => "اضافه كتاب",
+    "book" => " الكتاب",
+    "edit book" => "تعديل كتاب" ,
+    "books" =>  "الكتب",
+
+    "add podcast" => "اضافه بودكاست",
+    "podcast" => " بودكاست",
+    "edit podcast" => "تعديل بودكاست" ,
+    "podcasts" =>  "بودكاست",
 
 
     
+    "add course" => "اضافه كورس",
+    "course" => " كورس",
+    "edit course" => "تعديل كورس" ,
+    "courses" =>  "كورسات",
+
+    "add lesson" => "اضافه درس",
+    "lesson" => " درس",
+    "edit lesson" => "تعديل درس" ,
+    "lessons" =>  "دورس",
+
+    "website_courses" => "كورسات الموقع",
+
+    'features_ar' => 'مميزات  بالعربى  ',
+    'features_en' => 'مميزات بالانجليزي',
+
+    "add video" => "اضافه فيديو",
+    "add audio" => "اضافه تسجيل",
+    "number_of_pages" => "عدد الصفحات",
+    'mini_text_ar' => 'نص قصير بالعربى  ',
+    'mini_text_en' => 'نص قصير بالانجليزي',
+
+    "paper" => "ملف ورقى",
+    "pdf" => "ملف pdf",
+    "pdf_and_paper" => "ملف pdf وملف ورقى",
+
+    "login_to_admin_dashboard" => "تسجيل الدخول الى لوحه التحكم"
+
 ];

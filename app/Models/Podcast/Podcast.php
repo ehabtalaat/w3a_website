@@ -6,6 +6,7 @@ use App\Models\Image\Image;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
+use Carbon\Carbon;
 
 class Podcast extends Model
 {
@@ -30,5 +31,10 @@ class Podcast extends Model
 
     public function tags(){
         return $this->belongsToMany(Tag::class,"podcast_tags","podcast_id","tag_id");
+    }
+
+    public function getDateAttribute()
+    {
+        return $this->created_at ? Carbon::parse($this->created_at)->format('Y-m-d') : "";
     }
 }

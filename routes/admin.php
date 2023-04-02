@@ -3,12 +3,17 @@
 use App\Http\Controllers\Admin\AboutDoctorController;
 use App\Http\Controllers\Admin\AboutHeaderController;
 use App\Http\Controllers\Admin\AboutPodcastController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookTypeController;
 use App\Http\Controllers\Admin\CenterConsultingController;
 use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\Doctor\ConsultationController as DoctorConsultationController;
+use App\Http\Controllers\Admin\Doctor\DoctorController;
+use App\Http\Controllers\Admin\Doctor\TimeController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\LessonController;
@@ -34,7 +39,13 @@ Route::group(
      ],
      function () {
 
-
+      Route::group(["middleware" => "guest:admin"], function () {
+                
+         Route::get("login", [AuthController::class, "login"])->name("admin_loginpage");
+         Route::post("admin_login", [AuthController::class, "admin_login"])->name("admin_login");
+     });
+      Route::group(["middleware" => "auth:admin"], function () {
+         Route::get("logout", [AuthController::class, "logout"])->name("logout");
         //main_headers
         Route::group(['controller' => MainHeaderController::class], function () {
         Route::get("main_headers", "index")->name("main_headers.index");
@@ -107,10 +118,36 @@ Route::group(
       //experiences 
       Route::resource("experiences",ExperienceController::class); 
 
-         //consultations 
-         Route::resource("consultations",ConsultationController::class); 
+      //consultations 
+      Route::resource("consultations",ConsultationController::class); 
+
+   
+      //admins 
+      Route::resource("admins",AdminController::class);      
+
+      //doctors 
+      Route::resource("doctors",DoctorController::class);      
+
+     Route::group(['controller' => DoctorController::class], function () {
+      Route::post("doctors/active", "active")->name("doctors.active");
+      });
 
 
+
+      //doctor_times
+      Route::group(['controller' => TimeController::class], function () {
+      Route::get("doctor_times/{id}", "index")->name("doctor_times.index");
+
+      Route::post("doctor_times/update/{id}", "update")->name("doctor_times.update");
+      });
+
+        //doctor_consultations
+        Route::group(['controller' => DoctorConsultationController::class], function () {
+         Route::get("doctor_consultations/{id}", "index")->name("doctor_consultations.index");
+   
+         Route::post("doctor_consultations/update/{id}", "update")->name("doctor_consultations.update");
+         });
+   
                
     //center_consultings
      Route::group(['controller' => CenterConsultingController::class], function () {
@@ -122,7 +159,7 @@ Route::group(
          //courses 
          Route::resource("courses",CourseController::class); 
 
-
+ 
          
             //lessons
             Route::group(['controller' => LessonController::class], function () {
@@ -147,4 +184,5 @@ Route::group(
          
             //books 
             Route::resource("books",BookController::class); 
+         });
   });

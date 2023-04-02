@@ -120,3 +120,102 @@ text-align: center;
 .invalid-feedback{
   display: flex;
 }
+
+.working_hours {
+  /* border: 0.7px solid #bdbdbd; */
+  border-radius: 12px;
+  width: fit-content;
+  margin: 1rem auto 0;
+  padding: 1rem 3rem;
+}
+.working_hours .card_working {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 1.5rem;
+}
+.working_hours .card_working .inputs {
+  width: 70%;
+}
+.working_hours .card_working .inputs:nth-child(2) {
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+.working_hours .card_working .inputs {
+  margin-inline-start: 60px;
+  padding-inline-start: 2rem;
+}
+.working_hours .card_working:last-child {
+  margin-bottom: 0;
+}
+.working_hours .time_to,
+.working_hours .time_from {
+  border: 1px solid #e5e5e5;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: 50%;
+  text-align: center;
+  font-family: "regular";
+}
+.working_hours .to {
+  margin: 0 2rem;
+  font-family: "regular";
+  font-size: 0.8rem;
+}
+.working_hours .form-check {
+  padding: 0;
+}
+.working_hours .form-check .form-check-label {
+  margin: 0 1rem;
+  padding: 1rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: "regular";
+  background-color: rgba(161, 207, 95, 0.5);
+  color: #fff;
+  margin-inline-end: 2rem;
+}
+.working_hours .form-check .form-check-input {
+  display: none;
+}
+.working_hours .form-check .form-check-input:checked ~ .form-check-label {
+  background-color: rgba(161, 207, 95, 1);
+}
+.working_hours .submit_btn {
+  background-color: rgba(161, 207, 95, 1);
+  color: #fff;
+  font-family: "semibold";
+  font-size: .8rem;
+  padding: .75rem 2rem;
+  margin-inline-start: 1rem;
+  transition: .7s ease-in-out;
+}
+.working_hours .submit_btn:hover {
+  background-color: #fff;
+  color: rgba(161, 207, 95, 1);
+  border: 1px solid rgba(161, 207, 95, 1);
+  transition: .7s ease-in-out;
+}
+.working_hours .plusBtn, .working_hours .closeBtn {
+  margin-inline-start: 2rem;
+}
+.working_hours .plusBtn i {
+  color: #28a745;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.working_hours .closeBtn i {
+  color: #dc3545;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.icon_action{
+  color: #28a745;
+  font-size: 1.5rem;
+  margin-left:1rem
+}
