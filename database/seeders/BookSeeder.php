@@ -28,14 +28,14 @@ class BookSeeder extends Seeder
           ];
         }
       
-        $array = BookType::get()->pluck("id")->toArray();
+        $array = collect(BookType::get()->modelkeys());
         $data["pdf"] = 'uploads/default.pdf';
         
 
         $data["price"] =rand(10,223);
         $data["number_of_pages"] =rand(10,223);
         $data["type"] = rand(1,3);
-        $data["book_type_id"] =  $array[rand(0, count($array))];
+        $data["book_type_id"] =  $array->random();
 
        $book = Book::create($data);
 

@@ -37,4 +37,7 @@ class Podcast extends Model
     {
         return $this->created_at ? Carbon::parse($this->created_at)->format('Y-m-d') : "";
     }
+    public function scopeMostlistened($query){
+        return $query;
+    }
 }

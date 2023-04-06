@@ -733,7 +733,7 @@ ____________________________ Resource ____________________________
             date                          => created_at and updated_at
 
 ----------------------------------------------------------------
-
+ 
 -- PodcastDetailsResource
     image                         => String
     title                         => String

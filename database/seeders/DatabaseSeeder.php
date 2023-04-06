@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder
             CenterConsultingSeeder::class,
             BlogSeeder::class,
             DoctorSeeder::class,
+            StoreHeaderSeeder::class,
+            WebsiteReasonSeeder::class,
+            ExperienceSeeder::class
             
 
            

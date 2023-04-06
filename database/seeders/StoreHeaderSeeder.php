@@ -2,23 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\WebsiteReason\WebsiteReason;
+use App\Models\StoreHeader\StoreHeader;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-class WebsiteReasonSeeder extends Seeder
+class StoreHeaderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
-        $faker = Factory::create();
-        for($i = 0;$i < 6;$i++){
-            
+
+     public function run()
+     { 
+     $faker = Factory::create();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['title' => $faker->text(20),
             'text' => $faker->text(100)
@@ -27,7 +26,7 @@ class WebsiteReasonSeeder extends Seeder
       
         
         
-       $WebsiteReason = WebsiteReason::create($data);
+       $main_header = StoreHeader::create($data);
 
 
         //update image
@@ -38,8 +37,7 @@ class WebsiteReasonSeeder extends Seeder
  
  
         //save image 
-        $WebsiteReason->image()->create($data_image);
-    }
+        $main_header->image()->create($data_image);
     
     }
 }

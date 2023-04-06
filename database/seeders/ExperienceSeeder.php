@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Experience\Experience;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Faker\Factory;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class ExperienceSeeder extends Seeder
 {
     /**
@@ -14,6 +16,22 @@ class ExperienceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Factory::create();
+        for($i = 0;$i < 6;$i++){
+            
+        foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
+            $data[$localeCode] = ['title' => $faker->text(20),
+            'text' => $faker->text(100)
+          ];
+        }
+      
+        
+        
+       $Experience = Experience::create($data);
+
+
+   
+    }
+    
     }
 }
