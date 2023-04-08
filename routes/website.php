@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\PodcastController as AdminPodcastController;
 use App\Http\Controllers\Api\Website\AboutDoctorController;
+use App\Http\Controllers\Api\Website\Auth\CheckCodeController;
+use App\Http\Controllers\Api\Website\Auth\EmailController;
+use App\Http\Controllers\Api\Website\Auth\LoginController;
+use App\Http\Controllers\Api\Website\Auth\LogoutController;
+use App\Http\Controllers\Api\Website\Auth\PasswordController as AuthPasswordController;
+use App\Http\Controllers\Api\Website\Auth\RegisterController;
 use App\Http\Controllers\Api\Website\BlogController;
 use App\Http\Controllers\Api\Website\BookController;
 use App\Http\Controllers\Api\Website\CenterConsultingController;
@@ -10,6 +15,8 @@ use App\Http\Controllers\Api\Website\DoctorController;
 use App\Http\Controllers\Api\Website\FeatureController;
 use App\Http\Controllers\Api\Website\MainHeaderController;
 use App\Http\Controllers\Api\Website\podcastController;
+use App\Http\Controllers\Api\Website\Profile\PasswordController;
+use App\Http\Controllers\Api\Website\Profile\ProfileController;
 use App\Http\Controllers\Api\Website\SpecialAdviceController;
 use App\Http\Controllers\Api\Website\StoreController;
 use Illuminate\Http\Request;
@@ -17,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::get("token_invalid",[RegisterController::class,"token_invalid"])->name("token_invalid");
 
 
 //home
@@ -92,4 +100,31 @@ Route::group(['controller' => StoreController::class], function () {
     
         });    
 
+
+//auth 
+Route::post("login", [LoginController::class, "login"]);
+
+Route::post("register", [RegisterController::class, "register"]);
+
+Route::post("check_code", [CheckCodeController::class, "check_code"]);
+
+Route::post("check_email", [EmailController::class, "check_email"]);
+
+Route::post("reset_password", [AuthPasswordController::class, "reset_password"]);
+
+
+Route::group(["middleware" => "auth:api"], function () {
+
+    Route::get("logout", [LogoutController::class, "logout"]);
+
+    //profile
+
+Route::post("update_profile", [ProfileController::class, "update_profile"]);
+
+Route::get("fetch_profile", [ProfileController::class, "fetch_profile"]);
+
+Route::post("change_password", [PasswordController::class, "change_password"]);
+
+
+});
 

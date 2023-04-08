@@ -72,7 +72,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => PharmacyApi\Models\User\User::class,
+            'model' => App\Models\User\User::class,
         ],
    
         'doctors' => [
