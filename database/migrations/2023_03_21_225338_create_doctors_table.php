@@ -21,7 +21,9 @@ return new class extends Migration
             $table->text('password')->nullable();
             $table->string('title')->nullable();
             $table->tinyInteger('active')->unsigned()->default(1);
+            $table->tinyInteger('main')->unsigned()->default(0);
             $table->tinyInteger('type')->unsigned()->default(1)->comment("1 => admin, 2 => doctor");
+            $table->integer('waiting_time')->unsigned()->default(30);
             $table->text('remember_token')->nullable();
 
 

@@ -62,23 +62,7 @@ return new class extends Migration
             ->onDelete('cascade');
         });
 
-        Schema::create('book_rates', function (Blueprint $table) {
-            $table->increments('id');
-            $table->double('rate')->nullable();
-            $table->longText('comment')->nullable();
-            $table->integer('book_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreign('book_id')->references('id')->on('books')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-
-            $table->foreign('user_id')->references('id')->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-        });
+     
     }
 
     /**

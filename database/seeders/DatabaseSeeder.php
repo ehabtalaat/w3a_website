@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             TagSeeder::class,
             BookTypeSeeder::class,
+            ConsultationSeeder::class,
+            PaymentMethodSeeder::class,
             MainHeaderSeeder::class,
             AboutDoctorSeeder::class,
             FeatureSeeder::class,
@@ -36,7 +38,9 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
             StoreHeaderSeeder::class,
             WebsiteReasonSeeder::class,
-            ExperienceSeeder::class
+            ExperienceSeeder::class,
+            AboutHeaderSeeder::class,
+          
             
 
            

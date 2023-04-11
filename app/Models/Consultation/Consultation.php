@@ -2,6 +2,7 @@
 
 namespace App\Models\Consultation;
 
+use App\Models\Doctor\Doctor;
 use App\Models\Image\Image;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,4 +22,9 @@ class Consultation extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function doctors(){
+        return $this->belongsToMany(Doctor::class,'doctor_consultations',
+        'consultation_id','doctor_id')->withPivot(["time", "price"]);
+}
 }

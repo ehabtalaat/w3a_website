@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Consultation\Consultation;
 use App\Models\Doctor\Doctor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -45,6 +46,18 @@ class DoctorSeeder extends Seeder
 
        //save image 
        $doctor->image()->create($data_image);
+
+
+       $consultation_ids = Consultation::get()->modelKeys();
+      
+
+      
+        for ($e = 0; $e < count($consultation_ids); $e++) {
+            $sync_data[$consultation_ids[$i]] = ['time' => rand(20,50),
+            'price' => rand(20,50)];
+        }
+    
+        $doctor->consultations()->attach($sync_data);
     }
 }
 

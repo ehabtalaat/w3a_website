@@ -2,23 +2,22 @@
 
 namespace Database\Seeders;
 
-use App\Models\PaymentMethod\PaymentMethod;
+use App\Models\AboutHeader\AboutHeader;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-class PaymentMethodSeeder extends Seeder
+class AboutHeaderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
-        $faker = Factory::create();
-        for($i = 0;$i < 6;$i++){
-            
+
+     public function run()
+     { 
+     $faker = Factory::create();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['title' => $faker->text(20),
             'text' => $faker->text(100)
@@ -27,7 +26,7 @@ class PaymentMethodSeeder extends Seeder
       
         
         
-       $PaymentMethod = PaymentMethod::create($data);
+       $main_header = AboutHeader::create($data);
 
 
         //update image
@@ -38,8 +37,7 @@ class PaymentMethodSeeder extends Seeder
  
  
         //save image 
-        $PaymentMethod->image()->create($data_image);
-    }
+        $main_header->image()->create($data_image);
     
     }
 }

@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\PaymentMethod\PaymentMethod;
+use App\Models\Consultation\Consultation;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-class PaymentMethodSeeder extends Seeder
+class ConsultationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,8 +26,10 @@ class PaymentMethodSeeder extends Seeder
         }
       
         
+        $data["from_price"] = rand(100,200);
+        $data["to_price"] = rand(200,400);
         
-       $PaymentMethod = PaymentMethod::create($data);
+       $Consultation = Consultation::create($data);
 
 
         //update image
@@ -38,7 +40,7 @@ class PaymentMethodSeeder extends Seeder
  
  
         //save image 
-        $PaymentMethod->image()->create($data_image);
+        $Consultation->image()->create($data_image);
     }
     
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Website\AboutDoctorController;
+use App\Http\Controllers\Api\Website\AboutHeaderController;
 use App\Http\Controllers\Api\Website\Auth\CheckCodeController;
 use App\Http\Controllers\Api\Website\Auth\EmailController;
 use App\Http\Controllers\Api\Website\Auth\LoginController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Api\Website\Auth\RegisterController;
 use App\Http\Controllers\Api\Website\BlogController;
 use App\Http\Controllers\Api\Website\BookController;
 use App\Http\Controllers\Api\Website\CenterConsultingController;
+use App\Http\Controllers\Api\Website\ConsultationController;
 use App\Http\Controllers\Api\Website\CourseController;
 use App\Http\Controllers\Api\Website\DoctorController;
 use App\Http\Controllers\Api\Website\FeatureController;
@@ -19,6 +21,9 @@ use App\Http\Controllers\Api\Website\Profile\PasswordController;
 use App\Http\Controllers\Api\Website\Profile\ProfileController;
 use App\Http\Controllers\Api\Website\SpecialAdviceController;
 use App\Http\Controllers\Api\Website\StoreController;
+use App\Http\Controllers\Api\Website\UserBookController;
+use App\Http\Controllers\Api\Website\UserCourseController;
+use App\Http\Controllers\Api\Website\UserPodcastController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +76,8 @@ Route::group(['controller' => StoreController::class], function () {
         Route::get("fetch_educational_platform", "fetch_educational_platform");
     
         Route::post("fetch_educational_platform_details", "fetch_educational_platform_details");
+
+        Route::post("fetch_course_lessons", "fetch_course_lessons");
     
     
         });
@@ -96,10 +103,38 @@ Route::group(['controller' => StoreController::class], function () {
         Route::post("fetch_books_by_category_id", "fetch_books_by_category_id");
 
         Route::post("fetch_book_details", "fetch_book_details");
+        
+        Route::post("rate_book", "rate_book");
     
     
         });    
 
+
+    //blogs
+
+    Route::group(['controller' => BlogController::class], function () {
+        Route::get("fetch_blogs", "fetch_blogs");
+    
+        Route::post("blog_details", "blog_details");
+    
+    
+        });     
+        
+  
+    //consultations
+        
+    Route::group(['controller' => ConsultationController::class], function () {
+
+        Route::get("fetch_consultations", "index");
+    
+        Route::post("fetch_consultation_doctors", "fetch_consultation_doctors");
+    
+    
+        });     
+
+//fetch_about_header
+
+Route::get("fetch_about_header", [AboutHeaderController::class, "index"]);
 
 //auth 
 Route::post("login", [LoginController::class, "login"]);
@@ -125,6 +160,29 @@ Route::get("fetch_profile", [ProfileController::class, "fetch_profile"]);
 
 Route::post("change_password", [PasswordController::class, "change_password"]);
 
+//buy book
 
+Route::group(['controller' => UserBookController::class], function () {
+
+    Route::post("buy_book", "buy");
+    Route::get("your_books", "index");
+
+    }); 
+
+    Route::group(['controller' => UserCourseController::class], function () {
+
+        Route::post("buy_course", "buy");
+       Route::get("your_courses", "index");
+
+    
+        }); 
+
+Route::group(['controller' => UserPodcastController::class], function () {
+
+    Route::post("buy_podcast", "buy");
+    Route::get("your_podcasts", "index");
+
+
+    });        
 });
 
