@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('consultation_id')->unsigned()->nullable();
+            $table->integer('doctor_id')->unsigned()->nullable();
 
 
             $table->string("user_name")->nullable();
