@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('consultation_id')->unsigned()->nullable();
             $table->integer('doctor_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('payment_method_id')->unsigned()->nullable();
 
 
             $table->string("user_name")->nullable();
@@ -32,12 +34,31 @@ return new class extends Migration
 
             $table->integer('doctor_day_time_id')->unsigned()->nullable();
             $table->tinyInteger('status')->unsigned()->default(0); 
+            $table->longText("patient_notes")->nullable();
 
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 
             $table->foreign('doctor_id')->references('id')->on('doctors')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+    
+        });
+
+        Schema::create('reservation_results', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('reservation_id')->unsigned()->nullable();
+
+            $table->longText("doctor_notes")->nullable();
+
+
+
+
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
+            $table->foreign('reservation_id')->references('id')->on('reservations')
             ->onUpdate('cascade')
             ->onDelete('cascade');
     

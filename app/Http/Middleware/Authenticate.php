@@ -14,7 +14,7 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if($request->is("api/*")){
+        if($request->is("website/*")){
             return route('token_invalid'); 
         } 
         if (! $request->expectsJson()) {

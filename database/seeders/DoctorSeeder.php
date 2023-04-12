@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Consultation\Consultation;
+use App\Models\Day\Day;
 use App\Models\Doctor\Doctor;
+use App\Models\Doctor\DoctorDay;
+use App\Models\Doctor\DoctorDayTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
@@ -58,6 +61,28 @@ class DoctorSeeder extends Seeder
         }
     
         $doctor->consultations()->attach($sync_data);
+
+        $day_ids = collect(Day::all()->modelKeys());
+        foreach($day_ids as $day_id){
+
+            $day_data["day_id"] = $day_id;
+            $day_data["doctor_id"] = $doctor->id;
+           
+            $day_data["active"] = 1;
+            DoctorDay::create($day_data);
+
+            $doctor_day_ids = collect(DoctorDay::all()->modelKeys());
+            foreach($doctor_day_ids as $doctor_day_id){
+            
+
+            $time_data["day_id"] = 1;
+            $time_data["doctor_day_id"] = $doctor_day_id;
+            $time_data["from_time"] = $faker->time( 'H:i:s', '15:00:00' );
+            $time_data["to_time"] =  $faker->time( 'H:i:s', '20:00:00' );
+            DoctorDayTime::create($time_data);
+            
+            }
+        }   
     }
 }
 

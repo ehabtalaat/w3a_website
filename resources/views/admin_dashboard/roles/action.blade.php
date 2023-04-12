@@ -1,47 +1,4 @@
-        <?php $doctor = \App\Models\Doctor\Doctor::whereId($id)->first();?>
-        
-
-        
-      
-
-   
-
-        <div class="col-6">
-            <span class="switch btn btns-m switch-outline switch-icon switch-primary">
-            <label>
-                <input type="checkbox" onchange="activedoctor({{$id}})" 
-                @if ($doctor->active == 1)
-                checked
-                @endif
-                 name="active" id="active" 
-  
-                    value="1"/>
-                <span> </span>
-            active
-            </label>
-            </span>
-        </div>
-
-        <div class="col-6">
-            <span class="switch btn btns-m switch-outline switch-icon switch-primary">
-            <label>
-                <input type="checkbox" onchange="maindoctor({{$id}})" 
-                @if ($doctor->main == 1)
-                checked
-                @endif
-                 name="main" id="active" 
-  
-                    value="1"/>
-                <span> </span>
-                main
-            </label>
-            </span>
-        </div>
-
-        <a href="{{route("doctor_times.index", $id)}}"  title="{{__('messages.times')}}"
-        class="text-dark ml-2"><i class="fas fa-clock"></i></a>
-        
-        <a href="{{route('doctors.edit',$id)}}" class="btn btn-sm btn-hover-bg-light m-0">
+<a href="{{route('roles.edit',$id)}}" class="btn btn-sm btn-hover-bg-light m-0">
                                 
                                 <span class="svg-icon svg-icon-primary m-0 p-0 svg-icon-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -53,9 +10,9 @@
                                     </svg>
                                 </span>
                                 
-                </a>
-        
-                            <div style="cursor:pointer;" onclick="deletedoctors({{$id}})" class="btn btn-sm btn-hover-bg-light mr-1">
+                            </a>
+                         {{-- @if(auth()->id() != $id) --}}
+                            <div style="cursor:pointer;" onclick="deleteroles({{$id}})" class="btn btn-sm btn-hover-bg-light mr-1">
                                 <span class="svg-icon svg-icon-danger m-0 p-0 svg-icon-md"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-12-28-020759/theme/html/demo8/dist/../src/media/svg/icons/Home/Trash.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -66,12 +23,12 @@
                                     </svg><!--end::Svg Icon-->
                                 </span>
                             </div>
+                            {{-- @endif --}}
                            
-<script>
-     var table = $('.dataTable').DataTable();
+                            <script>
+              function deleteroles(id){
 
-function deletedoctors(id){
-
+ var table = $('.dataTable').DataTable();
  $.ajaxSetup({
        headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -96,7 +53,7 @@ function deletedoctors(id){
         '_method': 'DELETE',
         '_token':$('meta[name="csrf-token"]').attr('content')
       },
-       url: `doctors/${id}`,
+       url: `roles/${id}`,
        dataType: "Json",
        success: function(result){
            if(result.status == true){
@@ -111,67 +68,4 @@ function deletedoctors(id){
     });
     }
   })
-}
-</script>
-
-<script>
-    function activedoctor(id){
-    
-        let doctor_id = id;
-
-     $.ajaxSetup({
-           headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-        });
-       
-        $.ajax({
-            type:'POST',
-             data:{
-            'doctor_id' :doctor_id
-
-          },
-           url: "{{ route('doctors.active') }}",
-           dataType: "Json",
-
-   
-        success: function(result) {
-            if (result.status == true) {
-       table.ajax.reload();
-             
-                }
-            }
-        });
-        }
-
-        function maindoctor(id){
-    
-    let doctor_id = id;
-
- $.ajaxSetup({
-       headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-    });
-   
-    $.ajax({
-        type:'POST',
-         data:{
-        'doctor_id' :doctor_id
-
-      },
-       url: "{{ route('doctors.main') }}",
-       dataType: "Json",
-
-
-    success: function(result) {
-        if (result.status == true) {
-       table.ajax.reload();
-         
-            }
-        }
-    });
-    }
-      
-    </script>
-
+}</script>
