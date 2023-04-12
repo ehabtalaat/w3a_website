@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             WebsiteReasonSeeder::class,
             ExperienceSeeder::class,
             AboutHeaderSeeder::class,
+            LaratrustSeeder::class
           
             
 

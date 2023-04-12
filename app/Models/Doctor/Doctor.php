@@ -10,9 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Laratrust\Traits\LaratrustUserTrait;
+
 class Doctor extends Authenticatable
 {
-    use HasFactory,Translatable;
+    use HasFactory,Translatable,LaratrustUserTrait;
     public $translatedAttributes = ['mini_description','description'];
     protected $translationForeignKey = 'doctor_id';
     protected $table = 'doctors';

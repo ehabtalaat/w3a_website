@@ -19,8 +19,10 @@ use App\Http\Controllers\Api\Website\MainHeaderController;
 use App\Http\Controllers\Api\Website\podcastController;
 use App\Http\Controllers\Api\Website\Profile\PasswordController;
 use App\Http\Controllers\Api\Website\Profile\ProfileController;
+use App\Http\Controllers\Api\Website\ReservationController;
 use App\Http\Controllers\Api\Website\SpecialAdviceController;
 use App\Http\Controllers\Api\Website\StoreController;
+use App\Http\Controllers\Api\Website\TimeController;
 use App\Http\Controllers\Api\Website\UserBookController;
 use App\Http\Controllers\Api\Website\UserCourseController;
 use App\Http\Controllers\Api\Website\UserPodcastController;
@@ -136,6 +138,14 @@ Route::group(['controller' => StoreController::class], function () {
 
 Route::get("fetch_about_header", [AboutHeaderController::class, "index"]);
 
+//times
+
+Route::group(['controller' => TimeController::class], function () {
+
+    Route::post("filter_doctor_times_by_date", "filter_doctor_times_by_date");
+
+
+    }); 
 //auth 
 Route::post("login", [LoginController::class, "login"]);
 
@@ -183,6 +193,18 @@ Route::group(['controller' => UserPodcastController::class], function () {
     Route::get("your_podcasts", "index");
 
 
-    });        
+    });    
+
+    
+
+    //reservations
+
+Route::group(['controller' => ReservationController::class], function () {
+
+    Route::post("make_reservation", "store");
+    Route::get("fetch_your_reservations", "fetch_your_reservations");
+    Route::post("reservation_details", "reservation_details");
+
+    }); 
 });
 

@@ -25,10 +25,10 @@ class DoctorDayTime extends Model
  
 
     public function getFromTimeFormatAttribute(){
-        return $this->from_time ? Carbon::parse($this->from_time)->format('Y-m-d g:i A') : null;
+        return $this->from_time ? Carbon::parse($this->from_time)->format('g:i A') : null;
     }
 
     public function getToTimeFormatAttribute(){
-        return $this->from_time ? Carbon::parse($this->to_time)->format('Y-m-d g:i A') : null;
+        return $this->from_time ? Carbon::parse($this->to_time)->format('g:i A') : null;
     }
 }

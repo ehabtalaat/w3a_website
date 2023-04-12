@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\MainHeaderController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\PodcastController;
+use App\Http\Controllers\Admin\ReservationController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SpecialAdviceController;
 use App\Http\Controllers\Admin\StoreHeaderController;
 use App\Http\Controllers\Admin\TagController;
@@ -130,6 +132,7 @@ Route::group(
 
      Route::group(['controller' => DoctorController::class], function () {
       Route::post("doctors/active", "active")->name("doctors.active");
+      Route::post("doctors/main", "main")->name("doctors.main");
       });
 
 
@@ -184,5 +187,17 @@ Route::group(
          
             //books 
             Route::resource("books",BookController::class); 
+
+
+         
+        //reservations
+        Route::group(['controller' => ReservationController::class], function () {
+         Route::get("reservations", "index")->name("reservations.index");
+         Route::post("reservations/change_status", "change_status")->name("reservations.change_status");
+ 
+         });    
+
+         Route::resource("roles",RoleController::class); 
+
          });
   });

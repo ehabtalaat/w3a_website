@@ -136,6 +136,23 @@ class DoctorController extends Controller
         ]);
 
     }
+    public function main(Request $request){
+
+        $doctor = Doctor::whereId($request->doctor_id)->first();
+
+        $doctors = Doctor::orderBy("id","desc")->update([
+            "main" => 0
+        ]);
+
+        $data['main'] = $doctor->main ? 0 : 1 ;
+        
+        $doctor->update($data);
+
+        return response()->json([
+            'status'=>true
+        ]);
+
+    }
 
     
 
