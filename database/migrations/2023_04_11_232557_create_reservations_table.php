@@ -36,7 +36,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 
-            $table->foreign('doctor_id')->references('id')->on('lawyers')
+            $table->foreign('doctor_id')->references('id')->on('doctors')
             ->onUpdate('cascade')
             ->onDelete('cascade');
     
