@@ -61,4 +61,5 @@ class Reservation extends Model
         return Carbon::parse($this->created_at)->diffForHumans();
     }
 
+
 }

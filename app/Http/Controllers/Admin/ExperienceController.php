@@ -15,6 +15,13 @@ class ExperienceController extends Controller
     protected $view = 'admin_dashboard.experiences.';
     protected $route = 'experiences.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:experiences-create'])->only('create');
+        $this->middleware(['permission:experiences-read'])->only('index');
+        $this->middleware(['permission:experiences-update'])->only('edit');
+        $this->middleware(['permission:experiences-delete'])->only('destroy');
+    }
 
     public function index(ExperienceDataTable $dataTable)
     {

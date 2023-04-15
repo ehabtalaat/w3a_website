@@ -13,6 +13,10 @@ class MainHeaderController extends Controller
     protected $view = 'admin_dashboard.main_headers.';
     protected $route = 'main_headers.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:main_headers-update'])->only('update');
+    }
     public function index()
     {
         $main_header = MainHeader::firstOrNew();

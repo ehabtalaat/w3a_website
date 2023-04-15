@@ -14,7 +14,13 @@ class BookController extends Controller
 {
     protected $view = 'admin_dashboard.books.';
     protected $route = 'books.';
-
+    public function __construct()
+    {
+        $this->middleware(['permission:books-create'])->only('create');
+        $this->middleware(['permission:books-read'])->only('index');
+        $this->middleware(['permission:books-update'])->only('edit');
+        $this->middleware(['permission:books-delete'])->only('destroy');
+    }
 
     public function index(BookDataTable $dataTable)
     {

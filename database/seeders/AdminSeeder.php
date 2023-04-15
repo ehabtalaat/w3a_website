@@ -20,6 +20,7 @@ class AdminSeeder extends Seeder
 
         $data["password"] = hash_user_password(123123123);
         $admin = Doctor::create($data);
+        $admin->attachRole("super_admin");
 
 
     }

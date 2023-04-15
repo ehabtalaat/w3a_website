@@ -13,14 +13,41 @@
         margin-bottom: 2rem;
     }
         </style>
-        @php
-                $models = ['admins',
-                        'doctors',
-                          'roles',
-
-        ];
-                $maps = ['create', 'read', 'update', 'delete'];
-            @endphp
+       @php
+       $models = [
+          'admins',
+      'doctors',
+      'blogs',
+      'features',
+      'tags',
+      'book_types',
+      'website_reasons',
+      'payment_methods',
+      'experiences',
+      'consultations',
+      'courses',
+      'lessons',
+      'podcasts',
+      'roles',
+      'books',
+      "main_headers",
+      "about_doctors",
+      "about_podcasts",
+      "about_headers",
+      "special_advices",
+      "store_headers",
+      "center_consultings",
+  ];
+  $models1 = [ "main_headers",
+      "about_doctors",
+      "about_podcasts",
+      "about_headers",
+      "special_advices",
+      "store_headers",
+      "center_consultings",];
+      $maps = ['create', 'read', 'update', 'delete'];
+      $maps1 = ['update'];
+  @endphp
          <div class="col-12 mt-4">
             <div class="mb-3">
                 <label><input type="checkbox" class="formcotrol ml-3 mr-3" id="checkAll"> {{__('messages.all permissions')}}</label>
@@ -40,16 +67,30 @@
                 @foreach($models as $index=>$model)
     
                 <div role="tabpanel" class="tab-pane fade show {{$index == 0 ? 'active' : ''}}" id="{{$model}}">
+                    @if(in_array($model,$models1))
+                    @foreach($maps1 as $key1 => $map)
+                    <div class="checkbox checkbox-success form-check-inline">
+                        <input type="checkbox" name="permissions[]" id="inlineCheckbox55555555{{$key1}}" 
+                        @checked($role->hasPermission($model .'-'.$map))
+                        value="{{$model}}-{{$map}}">
+                        <label for="inlineCheckbox55555555{{$key1}}" style="margin-right: 30px;"> {{__('messages.'.$map)}}</label>
+                    </div>
+                 @endforeach
+                   
+                    @else
                     @foreach($maps as $key => $map)
                         <div class="checkbox checkbox-success form-check-inline">
-                            <input type="checkbox" name="permissions[]" id="inlineCheckbox{{$key}}" value="{{$model}}-{{$map}}" 
-                            @checked($role->hasPermission($model .'-'.$map))>
+                            <input type="checkbox" name="permissions[]" id="inlineCheckbox{{$key}}" 
+                            @checked($role->hasPermission($model .'-'.$map))
+                            value="{{$model}}-{{$map}}">
                             <label for="inlineCheckbox{{$key}}" style="margin-right: 30px;"> {{__('messages.'.$map)}}</label>
                         </div>
                      @endforeach
+                     @endif
                 </div>
                     @endforeach
             </div>
+            
             
     <script>
 

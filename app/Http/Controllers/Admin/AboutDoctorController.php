@@ -13,6 +13,11 @@ class AboutDoctorController extends Controller
     protected $view = 'admin_dashboard.about_doctors.';
     protected $route = 'about_doctors.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:about_doctors-update'])->only('update');
+    }
+
     public function index()
     {
         $about_doctor = AboutDoctor::firstOrNew();

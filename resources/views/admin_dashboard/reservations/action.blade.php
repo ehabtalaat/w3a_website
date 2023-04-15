@@ -2,6 +2,8 @@
 $reservation = \App\Models\Reservation\Reservation::whereId($id)->first();
 ?>
 
+<a href="{{route('reservations.show',$reservation->id)}}">
+    <i class="fas fa-eye icon_action"></i></a>
 
 @if($reservation->status == 3)
 <span  class="text-success">
@@ -26,6 +28,7 @@ onclick="change_reservation_status({{$id}},2)" class="btn btn-success">
 <span  class="text-success">
     {{__('messages.done_detection')}}
   </span>
+  <a href="{{route('reservations.result',$id)}}"  class="btn btn-success">{{__("messages.reservation_result")}}</a>
 @endif
 <script>
     function change_reservation_status(id,status) {

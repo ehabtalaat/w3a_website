@@ -16,6 +16,14 @@ class FeatureController extends Controller
     protected $route = 'features.';
 
 
+    public function __construct()
+    {
+        $this->middleware(['permission:features-create'])->only('create');
+        $this->middleware(['permission:features-read'])->only('index');
+        $this->middleware(['permission:features-update'])->only('edit');
+        $this->middleware(['permission:features-delete'])->only('destroy');
+    }
+
     public function index(FeatureDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');

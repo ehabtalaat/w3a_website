@@ -13,6 +13,11 @@ class StoreHeaderController extends Controller
     protected $view = 'admin_dashboard.store_headers.';
     protected $route = 'store_headers.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:store_headers-update'])->only('update');
+    }
+
     public function index()
     {
         $store_header = StoreHeader::firstOrNew();

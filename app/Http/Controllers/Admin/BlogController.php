@@ -15,6 +15,13 @@ class BlogController extends Controller
     protected $view = 'admin_dashboard.blogs.';
     protected $route = 'blogs.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:blogs-create'])->only('create');
+        $this->middleware(['permission:blogs-read'])->only('index');
+        $this->middleware(['permission:blogs-update'])->only('edit');
+        $this->middleware(['permission:blogs-delete'])->only('destroy');
+    }
 
     public function index(BlogDataTable $dataTable)
     {
