@@ -72,7 +72,11 @@
 								<span class="menu-text">{{__('messages.website_reasons')}}</span>
 							</a>
 						</li>
-
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('roles.index')}}" class="menu-link">
+				 				<span class="menu-text">{{__('messages.roles')}}</span>
+							</a> 
+						</li>
 
 					</ul>
 				</div>

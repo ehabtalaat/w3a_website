@@ -234,6 +234,17 @@ return [
     "pdf" => "ملف pdf",
     "pdf_and_paper" => "ملف pdf وملف ورقى",
 
-    "login_to_admin_dashboard" => "تسجيل الدخول الى لوحه التحكم"
+    "login_to_admin_dashboard" => "تسجيل الدخول الى لوحه التحكم",
+
+    "all permissions" => "كل الصلاحيات",
+"permissions" => "الصلاحيات",
+"add role" => "اضافه دور",
+"roles" => "الادوار",
+"role" => "دور",
+"edit role" => "تعديل الدور",
+"create" => "اضافه",
+"read" => "عرض",
+"update" => "تعديل",
+"delete" => "حذف",
 
 ];
