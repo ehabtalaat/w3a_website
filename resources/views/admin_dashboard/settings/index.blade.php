@@ -22,63 +22,79 @@
 			
 			</span>
 			
-			<h3 class="card-label"> {{__('messages.reservation_result')}}</h3>
+			<h3 class="card-label"> {{__('messages.add setting')}}</h3>
 		</div>
 	</div>
  
  
     <div class="card-body">
-    <form method="post" action="{{route('reservations.save_result',$reservation->id)}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('settings.update')}}" enctype="multipart/form-data">
     @csrf
-    <div class="row">
-        <div class="col-8 mx-auto">
-        <div class="uploadOuter">
-        <span class="dragBox" >
-        
-          Darg and Drop image here
-        <input type="file" name="images[]" multiple  ondragover="drag()" ondrop="drop()"   />
-        </span>
-        </div>
-        
-        <div class="preview">
-        @error('images') <span class="invalid-feedback">
-        {{ $message }}</span> @enderror
-
-        </div>
-              </div>
-             
-        </div>
-        <div class="row" id="row">
-            @foreach ($reservation->result->images  ?? [] as $image)
-                                        
-                                    
-            <div class="col-xl-4 col-lg-4 col-md-6 col-12 d-flex align-items-center" id="image_container{{$image->id}}">
-                <figure class="imghvr-fade product_figure">
-                <img style="width:100px;height:100px;"src='{{$image->image_link ?? "" }}' >
-                </figure>
-             
-            </div>
-
-                @endforeach
-        </div>
+      
 <div class="row">
- 
+            <div class="col-md-6 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.phone')}}</label>
+                    <input type="number" name="phone" required class="form-control mt-4" value="{{$setting->phone ?? ''}}"/>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.email')}}</label>
+                    <input type="email" name="email" class="form-control mt-4" value="{{$setting->email ?? ''}}"/>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.website')}}</label>
+                    <input type="text" name="website" required class="form-control mt-4" value="{{$setting->website ?? ''}}"/>
+                </div>
+            </div>
+           
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.whatsapp')}}</label>
+                    <input type="text" name="whatsapp" class="form-control mt-4" value="{{$setting->whatsapp ?? ''}}"/>
+                </div>
+            </div>
+            
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.facebook')}}</label>
+                    <input type="text" name="facebook" class="form-control mt-4" value="{{$setting->facebook ?? ''}}"/>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.twitter')}}</label>
+                    <input type="text" name="twitter" class="form-control mt-4" value="{{$setting->twitter ?? ''}}"/>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.instagram')}}</label>
+                    <input type="text" name="instagram" class="form-control mt-4" value="{{$setting->instagram ?? ''}}"/>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.linkedin')}}</label>
+                    <input type="text" name="linkedin" class="form-control mt-4" value="{{$setting->linkedin ?? ''}}"/>
+                </div>
+            </div>
+            
+            <div class="col-md-12 col-sm-12">
+                <div class="form_groub">
+                    <label>{{__('messages.youtube')}}</label>
+                    <input type="text" name="youtube" class="form-control mt-4" value="{{$setting->youtube ?? ''}}"/>
+                </div>
+            </div>
+            
+        
          
                  
 
-                <!-- For loop this div -->
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label>
-                        {{ __('messages.doctor_notes') }}
-                        </label>
-                        <textarea  class="form-control  @error('doctor_notes') is-invalid @enderror"
-                        name="doctor_notes"
-                         placeholder="" rows="7" required>{{ $reservation->result->doctor_notes ?? ""}}</textarea>
-                         @error('doctor_notes') <span class="invalid-feedback">
-                {{ $message }}</span> @enderror
-                    </div>
-                </div>
+               
 </div>
   <button type="submit" class="btn btn-shadow btn-primary font-weight-bold mt-5">
           {{__('messages.save')}}
@@ -100,22 +116,4 @@
  </form>
 
  <!--end::Form-->
- <script>
-    
-    $(":file").change(function () {
-        $('#row').empty();
-        if (this.files && this.files[0]) {
-            for (var i = 0; i < this.files.length; i++) {
-                var reader = new FileReader();
-                reader.onload = imageIsLoaded;
-                reader.readAsDataURL(this.files[i]);
-            }
-        }
-    });
-    function imageIsLoaded(e) {
-        $('#row').append(`<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 d-flex align-items-center">
-            <figure class="imghvr-fade product_figure"><img style="width:100px;height:100px;"src='${e.target.result}'>
-             </figure></div>`);
-    }
- </script>
 @endsection

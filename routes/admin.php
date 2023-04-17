@@ -22,10 +22,12 @@ use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SpecialAdviceController;
 use App\Http\Controllers\Admin\StoreHeaderController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\WebsiteReasonController;
+use App\Http\Controllers\Admin\WebsiteTextController;
 use App\Models\Blog\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -201,6 +203,16 @@ Route::group(
          });    
 
          Route::resource("roles",RoleController::class); 
+
+         
+         //settings
+         Route::get('settings', [SettingController::class ,'index'])->name('settings.index');
+         Route::post('settings/update', [SettingController::class ,'update'])->name('settings.update');
+
+
+          //website_texts
+          Route::get('website_texts', [WebsiteTextController::class ,'index'])->name('website_texts.index');
+          Route::post('website_texts/update', [WebsiteTextController::class ,'update'])->name('website_texts.update');
 
          });
   });

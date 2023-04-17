@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Website\WebsiteTextController;
 use App\Http\Controllers\Api\Website\AboutDoctorController;
 use App\Http\Controllers\Api\Website\AboutHeaderController;
 use App\Http\Controllers\Api\Website\Auth\CheckCodeController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Api\Website\podcastController;
 use App\Http\Controllers\Api\Website\Profile\PasswordController;
 use App\Http\Controllers\Api\Website\Profile\ProfileController;
 use App\Http\Controllers\Api\Website\ReservationController;
+use App\Http\Controllers\Api\Website\SettingController;
 use App\Http\Controllers\Api\Website\SpecialAdviceController;
 use App\Http\Controllers\Api\Website\StoreController;
 use App\Http\Controllers\Api\Website\TimeController;
@@ -57,7 +59,12 @@ Route::get("fetch_center_consulting", [CenterConsultingController::class, "index
 Route::get("fetch_home_blogs", [BlogController::class, "fetch_home_blogs"]);
 
 Route::get("fetch_home_doctors", [DoctorController::class, "fetch_home_doctors"]);
+Route::get("fetch_main_doctor", [DoctorController::class, "fetch_main_doctor"]);
 
+
+Route::get('fetch_setting', [SettingController::class, 'fetch_setting']);
+
+Route::get('fetch_website_texts', [WebsiteTextController::class, 'fetch_website_texts']);
 
 //store
 
