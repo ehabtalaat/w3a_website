@@ -22,7 +22,8 @@ class LaratrustSetupTables extends Migration
             $table->timestamps();
         });
 
-        // Create table for storing permissions
+
+        // Create table for storing permissions//
         Schema::create('permissions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
