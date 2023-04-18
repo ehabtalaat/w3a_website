@@ -60,6 +60,7 @@ Route::get("fetch_home_blogs", [BlogController::class, "fetch_home_blogs"]);
 
 Route::get("fetch_home_doctors", [DoctorController::class, "fetch_home_doctors"]);
 Route::get("fetch_main_doctor", [DoctorController::class, "fetch_main_doctor"]);
+Route::get("fetch_doctors", [DoctorController::class, "fetch_doctors"]);
 
 
 Route::get('fetch_setting', [SettingController::class, 'fetch_setting']);

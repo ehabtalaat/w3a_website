@@ -47,4 +47,23 @@ class DoctorController extends Controller
             return $this->returnException($ex->getMessage(), 500);
         }
     }
+
+    public function fetch_doctors(){
+        try{ 
+            
+            $doctors = Doctor::orderBy("id","desc")->doctor()->paginate(6);
+
+            //response
+
+          
+            
+            $msg = "fetch_doctors";
+            $data =  DoctorResource::collection($doctors)->response()->getData(true);
+
+            return $this->dataResponse($msg, $data,200);
+
+        } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+    }
 }
