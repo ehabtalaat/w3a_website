@@ -51,11 +51,11 @@ class DoctorController extends Controller
     public function fetch_doctors(){
         try{ 
             
-            $doctors = Doctor::orderBy("id","desc")->doctor()->paginate(6);
+            $doctors = Doctor::orderBy("id","desc")->doctor()->paginate(10);
+
 
             //response
 
-          
             
             $msg = "fetch_doctors";
             $data =  DoctorResource::collection($doctors)->response()->getData(true);
