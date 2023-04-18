@@ -13,6 +13,11 @@ class AboutPodcastController extends Controller
     protected $view = 'admin_dashboard.about_podcasts.';
     protected $route = 'about_podcasts.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:about_podcasts-update'])->only('update');
+    }
+
     public function index()
     {
         $about_podcast = AboutPodcast::firstOrNew();

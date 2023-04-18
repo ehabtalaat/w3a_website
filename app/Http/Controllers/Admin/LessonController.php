@@ -15,6 +15,13 @@ class LessonController extends Controller
     protected $view = 'admin_dashboard.lessons.';
     protected $route = 'lessons.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:lessons-create'])->only('create');
+        $this->middleware(['permission:lessons-read'])->only('index');
+        $this->middleware(['permission:lessons-update'])->only('edit');
+        $this->middleware(['permission:lessons-delete'])->only('destroy');
+    }
   
     public function index(LessonDataTable $dataTable, $id)
     {

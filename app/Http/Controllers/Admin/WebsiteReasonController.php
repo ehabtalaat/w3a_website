@@ -15,6 +15,13 @@ class WebsiteReasonController extends Controller
     protected $view = 'admin_dashboard.website_reasons.';
     protected $route = 'website_reasons.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:website_reasons-create'])->only('create');
+        $this->middleware(['permission:website_reasons-read'])->only('index');
+        $this->middleware(['permission:website_reasons-update'])->only('edit');
+        $this->middleware(['permission:website_reasons-delete'])->only('destroy');
+    }
 
     public function index(WebsiteReasonDataTable $dataTable)
     {

@@ -29,4 +29,22 @@ class DoctorController extends Controller
             return $this->returnException($ex->getMessage(), 500);
         }
     }
+    public function fetch_main_doctor(){
+        try{ 
+            
+            $doctor = Doctor::whereMain(1)->first();
+
+            //response
+
+          
+            
+            $msg = "fetch_home_doctors";
+            $data  = $doctor ? new  DoctorResource($doctor) : null;
+
+            return $this->dataResponse($msg, $data,200);
+
+        } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+    }
 }

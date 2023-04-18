@@ -16,6 +16,13 @@ class PaymentMethodController extends Controller
     protected $route = 'payment_methods.';
 
 
+    public function __construct()
+    {
+        $this->middleware(['permission:payment_methods-create'])->only('create');
+        $this->middleware(['permission:payment_methods-read'])->only('index');
+        $this->middleware(['permission:payment_methods-update'])->only('edit');
+        $this->middleware(['permission:payment_methods-delete'])->only('destroy');
+    }
     public function index(PaymentMethodDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');

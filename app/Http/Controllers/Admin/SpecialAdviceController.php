@@ -13,6 +13,10 @@ class SpecialAdviceController extends Controller
     protected $view = 'admin_dashboard.special_advices.';
     protected $route = 'special_advices.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:special_advices-update'])->only('update');
+    }
     public function index()
     {
         $special_advice = SpecialAdvice::firstOrNew();

@@ -16,6 +16,14 @@ class TagController extends Controller
     protected $route = 'tags.';
 
 
+    public function __construct()
+    {
+        $this->middleware(['permission:tags-create'])->only('create');
+        $this->middleware(['permission:tags-read'])->only('index');
+        $this->middleware(['permission:tags-update'])->only('edit');
+        $this->middleware(['permission:tags-delete'])->only('destroy');
+    }
+
     public function index(TagDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');

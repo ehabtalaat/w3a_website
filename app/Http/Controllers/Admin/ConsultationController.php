@@ -15,6 +15,13 @@ class ConsultationController extends Controller
     protected $view = 'admin_dashboard.consultations.';
     protected $route = 'consultations.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:consultations-create'])->only('create');
+        $this->middleware(['permission:consultations-read'])->only('index');
+        $this->middleware(['permission:consultations-update'])->only('edit');
+        $this->middleware(['permission:consultations-delete'])->only('destroy');
+    }
 
     public function index(ConsultationDataTable $dataTable)
     {

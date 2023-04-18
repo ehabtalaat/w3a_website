@@ -19,6 +19,13 @@ class DoctorController extends Controller
     protected $route = 'doctors.';
 
    
+    public function __construct()
+    {
+        $this->middleware(['permission:doctors-create'])->only('create');
+        $this->middleware(['permission:doctors-read'])->only('index');
+        $this->middleware(['permission:doctors-update'])->only('edit');
+        $this->middleware(['permission:doctors-delete'])->only('destroy');
+    }
 
     public function index(DoctorDataTable $dataTable)
     {

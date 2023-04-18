@@ -234,6 +234,36 @@ return [
     "pdf" => "ملف pdf",
     "pdf_and_paper" => "ملف pdf وملف ورقى",
 
-    "login_to_admin_dashboard" => "تسجيل الدخول الى لوحه التحكم"
+    "login_to_admin_dashboard" => "تسجيل الدخول الى لوحه التحكم",
+
+    "all permissions" => "كل الصلاحيات",
+"permissions" => "الصلاحيات",
+"add role" => "اضافه دور",
+"roles" => "الادوار",
+"role" => "دور",
+"edit role" => "تعديل الدور",
+"create" => "اضافه",
+"read" => "عرض",
+"update" => "تعديل",
+"delete" => "حذف",
+"website" => "موقع",
+"add setting" => "اضافه اعدادات",
+"reservations" => "الحجوزات",
+"id" => "id",
+"user_name" => "اسم المريض",
+"user_phone" => "هاتف المريض",
+"from" => "من",
+"to" => "الى",
+"reservation_date" => "تاريخ الحجز",
+"accept" => "قبول",
+"wait_detection" => "فى انتظار الكشف",
+"done_detection" => "انتهى الكشف",
+"reservation_result" => "نتيجه الكشف",
+"doctor_notes" => "ملاحظات الدكتور",
+"" => "",
+"" => "",
+"" => "",
+"" => "",
+
 
 ];

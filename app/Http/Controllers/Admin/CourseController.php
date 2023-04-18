@@ -15,6 +15,14 @@ class CourseController extends Controller
     protected $view = 'admin_dashboard.courses.';
     protected $route = 'courses.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:courses-create'])->only('create');
+        $this->middleware(['permission:courses-read'])->only('index');
+        $this->middleware(['permission:courses-update'])->only('edit');
+        $this->middleware(['permission:courses-delete'])->only('destroy');
+    }
+
 
     public function index(CourseDataTable $dataTable)
     {

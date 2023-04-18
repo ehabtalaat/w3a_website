@@ -15,6 +15,13 @@ class PodcastController extends Controller
     protected $view = 'admin_dashboard.podcasts.';
     protected $route = 'podcasts.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:podcasts-create'])->only('create');
+        $this->middleware(['permission:podcasts-read'])->only('index');
+        $this->middleware(['permission:podcasts-update'])->only('edit');
+        $this->middleware(['permission:podcasts-delete'])->only('destroy');
+    }
 
     public function index(PodcastDataTable $dataTable)
     {

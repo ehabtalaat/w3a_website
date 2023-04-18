@@ -87,7 +87,23 @@
                      {{ $message }}</span> @enderror  
                </div>
             </div>
-
+            <div class="col-md-4 col-12">
+                <div class="form-group">
+                    <label>
+                        {{__('messages.roles')}}
+                    </label>
+                 <select class="form-control selectpicker
+                  @error('role_id') is-invalid @enderror" name="role" id="role"
+                  data-live-search="true"  title="&nbsp;" >
+        
+                 @foreach($roles as $role)
+                    <option value="{{$role->name}}" @selected($admin->hasRole($role->name))>{{$role->name}}</option>
+                 @endforeach
+                 </select>
+                     @error('role_id') <span class="invalid-feedback">
+                            {{ $message }}</span> @enderror
+                </div>
+            </div>
             <div class="col-4">
                 <div class="form_groub">
 

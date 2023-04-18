@@ -15,6 +15,13 @@ class BookTypeController extends Controller
     protected $view = 'admin_dashboard.book_types.';
     protected $route = 'book_types.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:book_types-create'])->only('create');
+        $this->middleware(['permission:book_types-read'])->only('index');
+        $this->middleware(['permission:book_types-update'])->only('edit');
+        $this->middleware(['permission:book_types-delete'])->only('destroy');
+    }
 
     public function index(BookTypeDataTable $dataTable)
     {

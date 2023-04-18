@@ -30,8 +30,10 @@ class ReservationResource extends JsonResource
             "another_person_phone" => $this->another_person_phone ?? "",
             "date" => $this->date ?? "",
             "images" => $this->images->pluck("image_link")->toArray(),
+            "doctor_images" => $this->result  ? $this->result->images->pluck("image_link")->toArray() : [],
             "price" => $this->price ?? null,
             "patient_notes" => $this->patient_notes ?? '',
+            "doctor_notes" => $this->result->doctor_notes ?? '',
             "status" => intval($this->status)
 
         ];

@@ -22,16 +22,18 @@ use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SpecialAdviceController;
 use App\Http\Controllers\Admin\StoreHeaderController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\WebsiteReasonController;
+use App\Http\Controllers\Admin\WebsiteTextController;
 use App\Models\Blog\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
+ 
 
 
 Route::group(
@@ -134,7 +136,7 @@ Route::group(
       Route::post("doctors/active", "active")->name("doctors.active");
       Route::post("doctors/main", "main")->name("doctors.main");
       });
-
+ 
 
 
       //doctor_times
@@ -194,10 +196,23 @@ Route::group(
         Route::group(['controller' => ReservationController::class], function () {
          Route::get("reservations", "index")->name("reservations.index");
          Route::post("reservations/change_status", "change_status")->name("reservations.change_status");
+         Route::get("reservations/{id}", "show")->name("reservations.show");
+         Route::get("reservation_result/{id}", "result")->name("reservations.result");
+         Route::post("reservations_save_result/{id}", "save_result")->name("reservations.save_result");
  
          });    
 
          Route::resource("roles",RoleController::class); 
+
+         
+         //settings
+         Route::get('settings', [SettingController::class ,'index'])->name('settings.index');
+         Route::post('settings/update', [SettingController::class ,'update'])->name('settings.update');
+
+
+          //website_texts
+          Route::get('website_texts', [WebsiteTextController::class ,'index'])->name('website_texts.index');
+          Route::post('website_texts/update', [WebsiteTextController::class ,'update'])->name('website_texts.update');
 
          });
   });

@@ -14,6 +14,10 @@ class CenterConsultingController extends Controller
     protected $view = 'admin_dashboard.center_consultings.';
     protected $route = 'center_consultings.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:center_consultings-update'])->only('update');
+    }
     public function index()
     {
         $center_consulting = CenterConsulting::firstOrNew();

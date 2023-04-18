@@ -13,6 +13,11 @@ class AboutHeaderController extends Controller
     protected $view = 'admin_dashboard.about_headers.';
     protected $route = 'about_headers.';
 
+    public function __construct()
+    {
+        $this->middleware(['permission:about_headers-update'])->only('update');
+    }
+
     public function index()
     {
         $about_header = AboutHeader::firstOrNew();

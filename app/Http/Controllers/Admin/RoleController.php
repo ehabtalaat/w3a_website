@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\Admin\RoleDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Role\StoreRequest;
-use App\Http\Requests\Role\UpdateRequest;
+use App\Http\Requests\Admin\Role\StoreRequest;
+use App\Http\Requests\Admin\Role\UpdateRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -15,13 +15,13 @@ class RoleController extends Controller
     protected $view = 'admin_dashboard.roles.';
     protected $route = 'roles.';
 
-    // public function __construct()
-    // {
-    //     $this->middleware(['permission:roles-create'])->only('create');
-    //     $this->middleware(['permission:roles-read'])->only('index');
-    //     $this->middleware(['permission:roles-update'])->only('edit');
-    //     $this->middleware(['permission:roles-delete'])->only('destroy');
-    // }
+    public function __construct()
+    {
+        $this->middleware(['permission:roles-create'])->only('create');
+        $this->middleware(['permission:roles-read'])->only('index');
+        $this->middleware(['permission:roles-update'])->only('edit');
+        $this->middleware(['permission:roles-delete'])->only('destroy');
+    }
 
     public function index(RoleDataTable $dataTable)
     {

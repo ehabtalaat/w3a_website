@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments("id");
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
             $table->string('whatsapp')->nullable();
-            $table->text('facebook')->nullable();
+            $table->string('email')->nullable();
             $table->text('twitter')->nullable();
-            $table->text('instagram')->nullable();
+            $table->text('facebook')->nullable();
             $table->text('linkedin')->nullable();
+            $table->text('instagram')->nullable(); 
+            $table->text('website')->nullable(); 
+            $table->text('youtube')->nullable(); 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+            LaratrustSeeder::class,
             DaySeeder::class,
             AdminSeeder::class,
             TagSeeder::class,
@@ -40,7 +41,6 @@ class DatabaseSeeder extends Seeder
             WebsiteReasonSeeder::class,
             ExperienceSeeder::class,
             AboutHeaderSeeder::class,
-            LaratrustSeeder::class
           
             
 

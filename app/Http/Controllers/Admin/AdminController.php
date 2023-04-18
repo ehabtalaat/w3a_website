@@ -12,13 +12,20 @@ use App\Models\Doctor\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Models\Role;
 
 class AdminController extends Controller
 {
     protected $view = 'admin_dashboard.admins.';
     protected $route = 'admins.';
 
-   
+    public function __construct()
+    {
+        $this->middleware(['permission:admins-create'])->only('create');
+        $this->middleware(['permission:admins-read'])->only('index');
+        $this->middleware(['permission:admins-update'])->only('edit');
+        $this->middleware(['permission:admins-delete'])->only('destroy');
+    }
 
     public function index(AdminDataTable $dataTable)
     {
@@ -29,7 +36,9 @@ class AdminController extends Controller
     public function create()
     {
 
-        return view($this->view . 'create');
+        $roles = Role::get();
+        return view($this->view . 'create',compact('roles'));
+    
     }
 
     
@@ -44,6 +53,9 @@ class AdminController extends Controller
   
         $admin = Doctor::create($data);
 
+        if($request->role){
+            $admin->attachRole($request->role); 
+         }
         
        $data_image = [];
 
@@ -65,8 +77,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         $admin = Doctor::whereId($id)->firstOrFail();
-        return view($this->view . 'edit',compact('admin'));
+        $roles = Role::get();
 
+        return view($this->view . 'edit', compact("admin","roles"));
     }
 
     
@@ -83,6 +96,9 @@ class AdminController extends Controller
         $admin->update($data);
 
 
+        if($request->role){
+            $admin->syncRoles([$request->role]); 
+         }
 
         $data_image = [];
 
@@ -112,9 +128,6 @@ class AdminController extends Controller
         $admin->delete();
         return response()->json(['status' => true]);
     }
-
-
-
-    
+  
 
 }
