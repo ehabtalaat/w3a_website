@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Website\CertificateResource;
 use App\Http\Resources\Website\ExperienceResource;
 use App\Http\Resources\Website\StoreHeaderResource;
 use App\Http\Resources\Website\WebsiteReasonResource;
+use App\Models\Certificate\Certificate;
 use App\Models\Experience\Experience;
 use App\Models\StoreHeader\StoreHeader;
 use App\Models\WebsiteReason\WebsiteReason;
@@ -64,6 +66,24 @@ class StoreController extends Controller
             
             $msg = "fetch_website_expeienses";
             $data =  ExperienceResource::collection($experiences);
+
+            return $this->dataResponse($msg, $data,200);
+
+        } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+    }
+    public function fetch_certificate(){
+        try{ 
+            
+            $certificate = Certificate::firstOrNew();
+
+            //response
+
+          
+            
+            $msg = "fetch_certificate";
+            $data = new CertificateResource($certificate);
 
             return $this->dataResponse($msg, $data,200);
 

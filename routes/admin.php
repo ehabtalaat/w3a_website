@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookTypeController;
 use App\Http\Controllers\Admin\CenterConsultingController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\Doctor\ConsultationController as DoctorConsultationController;
@@ -94,6 +95,13 @@ Route::group(
 
         Route::put("about_headers/update", "update")->name("about_headers.update");
         }); 
+        
+         //certificates
+         Route::group(['controller' => CertificateController::class], function () {
+            Route::get("certificates", "index")->name("certificates.index");
+    
+            Route::put("certificates/update", "update")->name("certificates.update");
+            }); 
 
 
 

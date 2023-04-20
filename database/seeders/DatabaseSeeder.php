@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
             WebsiteReasonSeeder::class,
             ExperienceSeeder::class,
             AboutHeaderSeeder::class,
+            CertificateSeeder::class
           
             
 

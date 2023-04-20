@@ -77,6 +77,8 @@ Route::group(['controller' => StoreController::class], function () {
 
     Route::get("fetch_website_expeienses", "fetch_website_expeienses");
 
+    Route::get("fetch_certificate", "fetch_certificate");
+
     });
 
     //The educational platform
