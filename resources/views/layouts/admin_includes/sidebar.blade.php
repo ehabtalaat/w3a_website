@@ -128,7 +128,11 @@
 								<span class="menu-text">{{__('messages.store_headers')}}</span>
 							</a> 
 						</li>
-
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('certificates.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.certificates')}}</span>
+							</a> 
+						</li>
 
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('experiences.index')}}" class="menu-link" >
