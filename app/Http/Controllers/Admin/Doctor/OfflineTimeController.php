@@ -9,7 +9,7 @@ use App\Models\Doctor\DoctorDay;
 use App\Models\Doctor\DoctorDayTime;
 use Illuminate\Http\Request;
 
-class TimeController extends Controller
+class OffLineTimeController extends Controller
 {
     protected $view = 'admin_dashboard.doctors.times.';
     protected $route = 'doctors.';
@@ -19,7 +19,7 @@ class TimeController extends Controller
         $doctor = Doctor::whereId($id)->firstorFail();
         $days = Day::get();
  
-        return view($this->view . 'index', compact("doctor","days"));
+        return view($this->view . 'offline_index', compact("doctor","days"));
     }
     public function update(Request $request,$id){
 
@@ -32,7 +32,7 @@ class TimeController extends Controller
             ]); 
             $doctor_days_ids = DoctorDay::where("doctor_id",$id)->get()->pluck("id")->toArray();
             
-            DoctorDayTime::whereIn("doctor_day_id",$doctor_days_ids)->whereOffline(0)->update([
+            DoctorDayTime::whereIn("doctor_day_id",$doctor_days_ids)->whereOffline(1)->update([
                 "active" => 0
                        ]);
         }
@@ -42,6 +42,7 @@ class TimeController extends Controller
             $data["doctor_id"] = $id;
             $udpate_data = $data;
             $udpate_data["active"] = 1;
+            $udpate_data["offline"] = 1;
 
             //create or update day for Doctor
             $doctor_day = DoctorDay::updateOrCreate($data, $udpate_data);

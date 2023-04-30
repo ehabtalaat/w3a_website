@@ -214,6 +214,7 @@ Route::group(['controller' => ReservationController::class], function () {
     Route::post("make_reservation", "store");
     Route::get("fetch_your_reservations", "fetch_your_reservations");
     Route::post("reservation_details", "reservation_details");
+    Route::post("cancel_reservation", "cancel_reservation");
 
     }); 
 });

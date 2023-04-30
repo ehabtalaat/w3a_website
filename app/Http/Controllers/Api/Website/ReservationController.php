@@ -134,4 +134,39 @@ class ReservationController extends Controller
         }
 
     }
+    public function cancel_reservation(Request $request){
+        try{
+
+               //validation
+
+               $rules = [
+                "reservation_id" => "required|exists:reservations,id"
+  
+             ];
+             $validator = Validator::make($request->all(), $rules);
+         
+             if ($validator->fails()) {
+        
+                 return $this->getvalidationErrors($validator);
+                 
+             }
+
+             $reservation = Reservation::whereId($request->reservation_id)->first();
+
+
+             $data["status"] = 3;
+             $reservation->update($data);
+
+                
+            $msg = "تم الغاء الحجز بنجاح";
+
+            $data = new ReservationResource($reservation);
+
+            return $this->dataResponse($msg, $data,200);
+
+           } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+
+    }
 }
