@@ -22,6 +22,8 @@ class CourseResource extends JsonResource
             "video" => $this->video_link ?? "",
             "price" => intval($this->price),
             "number_of_lessons" => count($this->lessons),
+            "IsBuyed" => $this->IsBuyed($request->bearerToken())
+
         ];
     }
 }

@@ -22,7 +22,9 @@ class PodcastResource extends JsonResource
             "audio" => $this->audio_link ?? "",
             "price" => intval($this->price),
             "mintues" => intval($this->mintues),
-            "date" => $this->date ?? ""
+            "date" => $this->date ?? "",
+            "IsBuyed" => $this->IsBuyed($request->bearerToken())
+
         ];
     }
 }

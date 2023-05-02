@@ -40,6 +40,9 @@
 
         <a href="{{route("doctor_times.index", $id)}}"  title="{{__('messages.times')}}"
         class="text-dark ml-2"><i class="fas fa-clock"></i></a>
+
+        <a href="{{route("doctor_offline_times.index", $id)}}"  title="{{__('messages.offline_times')}}"
+        class="text-dark ml-2"><i class="fas fa-clock"></i></a>
         
         <a href="{{route('doctors.edit',$id)}}" class="btn btn-sm btn-hover-bg-light m-0">
                                 

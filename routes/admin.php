@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ConsultationController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\Doctor\ConsultationController as DoctorConsultationController;
 use App\Http\Controllers\Admin\Doctor\DoctorController;
+use App\Http\Controllers\Admin\Doctor\OffLineTimeController;
 use App\Http\Controllers\Admin\Doctor\TimeController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeatureController;
@@ -153,6 +154,12 @@ Route::group(
 
       Route::post("doctor_times/update/{id}", "update")->name("doctor_times.update");
       });
+
+      Route::group(['controller' => OffLineTimeController::class], function () {
+         Route::get("doctor_offline_times/{id}", "index")->name("doctor_offline_times.index");
+   
+         Route::post("doctor_offline_times/update/{id}", "update")->name("doctor_offline_times.update");
+         });
 
         //doctor_consultations
         Route::group(['controller' => DoctorConsultationController::class], function () {

@@ -48,7 +48,10 @@ class Doctor extends Authenticatable
   
     
     public function doctor_days(){
-        return $this->hasMany(DoctorDay::class)->where("active",1);
+        return $this->hasMany(DoctorDay::class)->where("active",1)->where("offline",0);
+    }
+    public function doctor_offline_days(){
+        return $this->hasMany(DoctorDay::class)->where("active",1)->where("offline",1);
     }
 
  

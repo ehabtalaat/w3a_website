@@ -61,6 +61,7 @@ Route::get("fetch_home_blogs", [BlogController::class, "fetch_home_blogs"]);
 Route::get("fetch_home_doctors", [DoctorController::class, "fetch_home_doctors"]);
 Route::get("fetch_main_doctor", [DoctorController::class, "fetch_main_doctor"]);
 Route::get("fetch_doctors", [DoctorController::class, "fetch_doctors"]);
+Route::post("doctor_details", [DoctorController::class, "doctor_details"]);
 
 
 Route::get('fetch_setting', [SettingController::class, 'fetch_setting']);
@@ -214,6 +215,7 @@ Route::group(['controller' => ReservationController::class], function () {
     Route::post("make_reservation", "store");
     Route::get("fetch_your_reservations", "fetch_your_reservations");
     Route::post("reservation_details", "reservation_details");
+    Route::post("cancel_reservation", "cancel_reservation");
 
     }); 
 });

@@ -23,6 +23,7 @@ class BookResource extends JsonResource
             "pdf" => $this->pdf_link ?? "",
             "price" => intval($this->price),
             "number_of_pages" => intval($this->number_of_pages),
+            "IsBuyed" => $this->IsBuyed($request->bearerToken())
         ];
     }
 }
