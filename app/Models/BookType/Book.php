@@ -33,7 +33,7 @@ class Book extends Model
     public function IsBuyed($token) :bool{
         $user = User::where("api_token",$token)->first();
 
-        $user_book = UserBook::where([["book_id","=",$this->id],["user_id","=",$user->id]])->first();
+        $user_book = UserBook::where([["book_id","=",$this->id],["user_id","=",$user->id ?? null]])->first();
         $is_buyed = false;
 
         if($user_book){

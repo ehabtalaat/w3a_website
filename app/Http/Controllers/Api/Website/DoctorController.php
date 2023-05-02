@@ -7,6 +7,7 @@ use App\Http\Resources\Website\DoctorResource;
 use App\Models\Doctor\Doctor;
 use App\Traits\ApiTrait;
 use Illuminate\Http\Request;
+use Validator;
 
 class DoctorController extends Controller
 {
@@ -65,5 +66,38 @@ class DoctorController extends Controller
         } catch (\Exception$ex) {
             return $this->returnException($ex->getMessage(), 500);
         }
+    }
+    public function doctor_details(Request $request){
+        try{
+
+               //validation
+
+               $rules = [
+                "doctor_id" => "required|exists:doctors,id"
+  
+             ];
+             $validator = Validator::make($request->all(), $rules);
+         
+             if ($validator->fails()) {
+        
+                 return $this->getvalidationErrors($validator);
+                 
+             }
+
+             $doctor = Doctor::whereId($request->doctor_id)->first();
+
+
+
+                
+            $msg = "doctor_details";
+
+            $data = new  DoctorResource($doctor);
+
+            return $this->dataResponse($msg, $data,200);
+
+           } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+
     }
 }

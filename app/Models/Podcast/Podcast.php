@@ -3,6 +3,8 @@
 namespace App\Models\Podcast;
 
 use App\Models\Image\Image;
+use App\Models\User\User;
+use App\Models\User\UserPodcast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
@@ -39,5 +41,16 @@ class Podcast extends Model
     }
     public function scopeMostlistened($query){
         return $query;
+    }
+    public function IsBuyed($token) :bool{
+        $user = User::where("api_token",$token)->first();
+
+        $user_podcast = UserPodcast::where([["podcast_id","=",$this->id],["user_id","=",$user->id ?? null]])->first();
+        $is_buyed = false;
+
+        if($user_podcast){
+            $is_buyed = true;
+        }
+        return $is_buyed;
     }
 }
