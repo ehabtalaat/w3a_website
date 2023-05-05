@@ -117,7 +117,6 @@ Route::group(['controller' => StoreController::class], function () {
 
         Route::post("fetch_book_details", "fetch_book_details");
         
-        Route::post("rate_book", "rate_book");
     
     
         });    
@@ -171,6 +170,13 @@ Route::post("reset_password", [AuthPasswordController::class, "reset_password"])
 
 Route::group(["middleware" => "auth:api"], function () {
 
+    Route::group(['controller' => BookController::class], function () {
+      
+        
+        Route::post("rate_book", "rate_book");
+    
+    
+        });  
     Route::get("logout", [LogoutController::class, "logout"]);
 
     //profile
