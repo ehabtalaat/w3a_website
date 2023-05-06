@@ -91,6 +91,7 @@ Route::group(['controller' => StoreController::class], function () {
         Route::post("fetch_educational_platform_details", "fetch_educational_platform_details");
 
         Route::post("fetch_course_lessons", "fetch_course_lessons");
+        Route::post("fetch_lesson_details", "fetch_lesson_details");
     
     
         });

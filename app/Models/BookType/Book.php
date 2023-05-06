@@ -26,6 +26,11 @@ class Book extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function rates()
+    {
+        return $this->hasMany(BookRate::class, 'book_id');
+    }
+
     public function getPdfLinkAttribute()
     {
         return $this->pdf ? asset($this->pdf) : '';

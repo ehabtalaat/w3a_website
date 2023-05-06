@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Website\BookRateResource;
 use App\Http\Resources\Website\BookResource;
 use App\Http\Resources\Website\BookTypeResource;
 use App\Models\BookType\Book;
@@ -111,7 +112,7 @@ class BookController extends Controller
 
             $data["details"] = new  BookResource($book);
             $data["other_books"] =  BookResource::collection($books);
-            $data["rates"] =  [];
+            $data["rates"] =  BookRateResource::collection($book->rates);
 
             return $this->dataResponse($msg, $data,200);
 

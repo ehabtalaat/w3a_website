@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Website\CourseResource;
 use App\Http\Resources\Website\LessonResource;
 use App\Models\Course\Course;
+use App\Models\Course\Lesson;
 use App\Traits\ApiTrait;
 use Illuminate\Http\Request;
 use Validator;
@@ -109,6 +110,39 @@ class CourseController extends Controller
             $msg = "fetch_course_lessons";
 
             $data =  LessonResource::collection($course->lessons);
+
+            return $this->dataResponse($msg, $data,200);
+
+           } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+
+    }
+    public function fetch_lesson_details(Request $request){
+        try{
+
+               //validation
+
+               $rules = [
+                "lesson_id" => "required|exists:lessons,id"
+  
+             ];
+             $validator = Validator::make($request->all(), $rules);
+         
+             if ($validator->fails()) {
+        
+                 return $this->getvalidationErrors($validator);
+                 
+             }
+
+             $lesson = Lesson::whereId($request->lesson_id)->first();
+
+
+
+                
+            $msg = "fetch_lesson_details";
+
+            $data = new  LessonResource($lesson);
 
             return $this->dataResponse($msg, $data,200);
 
