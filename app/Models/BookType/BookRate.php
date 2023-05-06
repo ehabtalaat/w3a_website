@@ -15,7 +15,7 @@ class BookRate extends Model
     protected $table = 'book_rates';
 
     
-    public function getDateFormatAttribute(){
+    public function getDateAttribute(){
         return Carbon::parse($this->created_at)->format('Y-m-d g:i A') ;
     }
     public function user(){
