@@ -99,6 +99,57 @@ return new class extends Migration
             $table->foreign('doctor_day_id')->references('id')->on('doctor_days')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
+        });
+
+        Schema::create('doctor_experiences', function (Blueprint $table) {
+            $table->increments("id");
+            $table->integer('doctor_id')->unsigned()->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->foreign('doctor_id')->references('id')->on('doctors')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+        });
+        
+        Schema::create('doctor_experience_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title')->nullable();
+            $table->longText('text')->nullable();
+            $table->string('locale')->nullable();
+            $table->integer('doctor_experience_id')->unsigned()->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
+            $table->foreign('doctor_experience_id')->references('id')->on('doctor_experiences')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+        });
+
+        Schema::create('doctor_certificates', function (Blueprint $table) {
+            $table->increments("id");
+            $table->integer('doctor_id')->unsigned()->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
+            $table->foreign('doctor_id')->references('id')->on('doctors')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+        });
+        
+        Schema::create('doctor_certificate_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title')->nullable();
+            $table->longText('text')->nullable();
+            $table->string('locale')->nullable();
+            $table->integer('doctor_certificate_id')->unsigned()->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
+            $table->foreign('doctor_certificate_id')->references('id')->on('doctor_certificates')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

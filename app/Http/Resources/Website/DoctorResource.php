@@ -20,7 +20,9 @@ class DoctorResource extends JsonResource
             "mini_description" => $this->mini_description ?? "",
             "description" => $this->description ?? "",
             "image" => $this->image->image_link ?? "",
-            "rate" => $this->rate ?? 0
+            "rate" => $this->rate ?? 0,
+            "certificates" => CertificateResource::collection($this->certificates),
+            "experiences" => ExperienceResource::collection($this->experiences),
         ];
     }
 }

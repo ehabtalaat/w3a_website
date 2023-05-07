@@ -136,13 +136,15 @@ class CourseController extends Controller
              }
 
              $lesson = Lesson::whereId($request->lesson_id)->first();
+             $lessons = Lesson::where([["course_id","=",$lesson->course_id],["id","!=",$lesson->id]])->get();
 
 
 
                 
             $msg = "fetch_lesson_details";
 
-            $data = new  LessonResource($lesson);
+            $data["details"] = new LessonResource($lesson);
+            $data["other_lessons"] =  LessonResource::collection($lessons);
 
             return $this->dataResponse($msg, $data,200);
 

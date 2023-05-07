@@ -15,7 +15,6 @@
         "laravel/tinker": "^2.7",
         "mcamara/laravel-localization": "^1.7",
         "santigarcor/laratrust": "^7.2",
-
         "yajra/laravel-datatables": "9.0"
     },
     "require-dev": {

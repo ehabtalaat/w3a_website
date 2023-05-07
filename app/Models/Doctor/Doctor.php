@@ -30,7 +30,10 @@ class Doctor extends Authenticatable
 
     
     public function experiences(){
-        return $this->hasMany(doctorExperience::class);
+        return $this->hasMany(DoctorExperience::class);
+    }
+    public function certificates(){
+        return $this->hasMany(DoctorCertificate::class);
     }
 
     public function consultations(){

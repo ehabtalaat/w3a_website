@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\Doctor\ConsultationController as DoctorConsultati
 use App\Http\Controllers\Admin\Doctor\DoctorController;
 use App\Http\Controllers\Admin\Doctor\OffLineTimeController;
 use App\Http\Controllers\Admin\Doctor\TimeController;
+use App\Http\Controllers\Admin\Doctor\DoctorExperienceController;
+use App\Http\Controllers\Admin\Doctor\DoctorCertificateController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\LessonController;
@@ -148,6 +150,38 @@ Route::group(
  
 
 
+        //doctor_experiences
+        Route::group(['controller' => DoctorExperienceController::class], function () {
+         Route::get("doctor_experiences/{id}", "index")->name("doctor_experiences.index");
+
+         Route::get("doctor_experiences/create/{id}", "create")->name("doctor_experiences.create");
+
+         Route::post("doctor_experiences/store/{id}", "store")->name("doctor_experiences.store");
+
+         Route::get("doctor_experiences/edit/{id}", "edit")->name("doctor_experiences.edit");
+
+         Route::put("doctor_experiences/update/{id}", "update")->name("doctor_experiences.update");
+
+         Route::delete("doctor_experiences/{id}", "destroy")->name("doctor_experiences.destroy");
+
+     });
+
+     //doctor_certificates
+
+     Route::group(['controller' => DoctorCertificateController::class], function () {
+      Route::get("doctor_certificates/{id}", "index")->name("doctor_certificates.index");
+
+      Route::get("doctor_certificates/create/{id}", "create")->name("doctor_certificates.create");
+
+      Route::post("doctor_certificates/store/{id}", "store")->name("doctor_certificates.store");
+
+      Route::get("doctor_certificates/edit/{id}", "edit")->name("doctor_certificates.edit");
+
+      Route::put("doctor_certificates/update/{id}", "update")->name("doctor_certificates.update");
+
+      Route::delete("doctor_certificates/{id}", "destroy")->name("doctor_certificates.destroy");
+
+  });
       //doctor_times
       Route::group(['controller' => TimeController::class], function () {
       Route::get("doctor_times/{id}", "index")->name("doctor_times.index");
