@@ -69,8 +69,8 @@
                                     </svg><!--end::Svg Icon-->
                                 </span>
                             </div>
-                            <span class="btn btn-success btn-sm" href="{{route('doctor_experiences.index',$id)}}">{{__("messages.experiences")}}</span>
-                            <span class="btn btn-success btn-sm" href="{{route('doctor_certificates.index',$id)}}">{{__("messages.certificates")}}</span>
+                            <a class="btn btn-success btn-sm" href="{{route('doctor_experiences.index',$id)}}">{{__("messages.experiences")}}</a>
+                            <a class="btn btn-success btn-sm" href="{{route('doctor_certificates.index',$id)}}">{{__("messages.certificates")}}</a>
 
 <script>
      var table = $('.dataTable').DataTable();
