@@ -51,8 +51,7 @@ class ReservationController extends Controller
             $data['user_phone'] = $request->user_phone;
             $data['contact_type'] = $request->contact_type;
             $data['for_another_person'] = $request->for_another_person;
-            $data['image_required'] = $payment_method->image_required;
-            $data['code_required'] = $payment_method->code_required;
+            $data['type'] = $payment_method->type;
 
             if($request->for_another_person == 1){
             $data['another_person_name'] = $request->another_person_name;
@@ -197,12 +196,12 @@ class ReservationController extends Controller
              $data = [];
 
             if ($request->receipt_image) {
-            $data["receipt_image"] = upload_image($request->receipt_image, "docotrs");
+            $data["receipt_image"] = upload_image($request->receipt_image, "doctors");
             }
-            if ($request->receipt_code) {
-            $data["receipt_code"] = $request->receipt_code;
+            // if ($request->receipt_code) {
+            // $data["receipt_code"] = $request->receipt_code;
 
-             }
+            //  }
              $reservation->update($data);
 
                 

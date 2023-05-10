@@ -21,8 +21,8 @@ class DoctorResource extends JsonResource
             "description" => $this->description ?? "",
             "image" => $this->image->image_link ?? "",
             "rate" => $this->rate ?? 0,
-            "certificates" => CertificateResource::collection($this->certificates),
-            "experiences" => ExperienceResource::collection($this->experiences),
+            "certificates" => $this->certificate ? new CertificateResource($this->certificate) : null,
+            "experiences" => ExperienceResource::collection($this->experiences), 
         ];
     }
 }

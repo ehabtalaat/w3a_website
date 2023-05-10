@@ -35,6 +35,9 @@ class Doctor extends Authenticatable
     public function certificates(){
         return $this->hasMany(DoctorCertificate::class);
     }
+    public function certificate(){
+        return $this->hasOne(DoctorCertificate::class);
+    }
 
     public function consultations(){
             return $this->belongsToMany(Consultation::class,'doctor_consultations',

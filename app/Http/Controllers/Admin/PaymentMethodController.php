@@ -43,8 +43,8 @@ class PaymentMethodController extends Controller
           ];
         }
   
-        $data["code_required"] = $request->code_required ?  1 : 0;
-        $data["image_required"] = $request->code_required ?  1 : 0;
+        $data["type"] = $request->type;
+
        $payment_method = PaymentMethod::create($data);
 
     
@@ -80,8 +80,7 @@ class PaymentMethodController extends Controller
                                     'title' => $request['title-' . $localeCode],
           ];
         }
-        $data["code_required"] = $request->code_required ?  1 : 0;
-        $data["image_required"] = $request->code_required ?  1 : 0;
+        $data["type"] = $request->type;
         
         $payment_method->update($data);
 

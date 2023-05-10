@@ -10,10 +10,12 @@
 </h3>
 										</div>
 										<div class="card-toolbar">
-										
+										@if(count($doctor->certificates) == 0)
+
 									
                                             <a href="{{route('doctor_certificates.create',$doctor->id)}}" class="btn btn-light-success font-weight-bold">
                                <i class="ki ki-plus icon-md mr-2"></i>{{__('messages.add')}}</a>
+                               @endif
 											<!--end::Button-->
 										</div>
 									</div>

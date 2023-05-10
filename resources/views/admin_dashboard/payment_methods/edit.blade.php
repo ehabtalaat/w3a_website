@@ -75,26 +75,28 @@
 
 </div>
 <div class="row">
-    <div class="col-md-6 col-sm-12">
-<span class="switch btn btns-m switch-outline switch-icon switch-primary">
-<label>
-    <input type="checkbox" name="image_required"  value="1" @checked($payment_method->code_required == 1)>
-    <span ></span>
- 
-</label>
-  {{ __('messages.image_required')}}
-</span>
-</div>
+    <div class="col-md-6 col-6">
+        <div class="form-group">
+            <label>
+                {{ __('messages.type') }}
 
-    <div class="col-md-6 col-sm-12">
-<span class="switch btn btns-m switch-outline switch-icon switch-primary">
-<label>
-    <input type="checkbox" name="code_required"  value="1" @checked($payment_method->code_required == 1)>
-    <span ></span>
- 
-</label>
-  {{ __('messages.code_required')}}
-</span>
+            </label>
+            <select class="selectpicker form-control 
+  @error('type') is-invalid @enderror"  id="type"
+                    name="type"   data-live-search="true" required
+                    title="&nbsp;"  >
+                    <option value="0" @selected($payment_type->type == 0)
+                        >{{__('messages.cash')}}</option>
+                        <option value="1" @selected($payment_type->type == 1)
+                        >{{__('messages.gate')}}</option>
+                        <option value="0" @selected($payment_type->type == 2)
+                        >{{__('messages.image_required')}}</option>     
+
+            </select>
+            @error('type') <span class="invalid-feedback">
+{{ $message }}</span> @enderror
+        </div>
+    </div>
 </div>
 </div>
 <div class="row">

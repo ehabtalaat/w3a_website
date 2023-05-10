@@ -37,10 +37,8 @@ return new class extends Migration
             $table->longText("patient_notes")->nullable();
             $table->string("receipt_image")->nullable();
 
-            $table->string("receipt_code")->nullable();
 
-            $table->tinyInteger('image_required')->unsigned()->default(0);
-            $table->tinyInteger('code_required')->unsigned()->default(0);
+            $table->tinyInteger('type')->unsigned()->default(0);
             
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

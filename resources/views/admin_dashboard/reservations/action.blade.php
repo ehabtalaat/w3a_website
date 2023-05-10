@@ -10,7 +10,7 @@ $reservation = \App\Models\Reservation\Reservation::whereId($id)->first();
 }
 </style>
 
-@if($reservation->image_required == 1)
+@if($reservation->type == 2)
 <span style="cursor:pointer;" class="label label-lg font-weight-bold label-light-success label-inline span" data-toggle="modal" data-target="#exampleModal{{$reservation->id}}">صوره الوصل</span>
 <div class="modal fade" id="exampleModal{{$reservation->id}}" tabindex="-1"
         role="dialog" aria-labelledby="exampleModalLabel"
@@ -42,37 +42,7 @@ $reservation = \App\Models\Reservation\Reservation::whereId($id)->first();
     </div>
 @endif
 
-@if($reservation->receipt_code == 1)
-<span style="cursor:pointer;" class="label label-lg font-weight-bold label-light-success label-inline span" data-toggle="modal" data-target="#exampleModal{{$reservation->id}}">صوره الوصل</span>
-<div class="modal fade" id="exampleModal{{$reservation->id}}" tabindex="-1"
-        role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Modal heading -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      كود الدفع
-                    </h5>
-                    <button type="button" class="close"
-                        data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            ×
-                        </span>
-                    </button>
-                </div>
-                <!-- Modal body with image -->
-                <div class="modal-body">
-                    @if($reservation->receipt_code)
-                    <label for="">{{$reservation->receipt_code}}</label>
-                    @else
-                  <p>لم ترسل الكود بعد</p>
-                  @endif
-                </div>
-            </div>
-        </div>
-    </div>
-@endif
+
 <a href="{{route('reservations.show',$reservation->id)}}">
     <i class="fas fa-eye icon_action"></i></a>
 
