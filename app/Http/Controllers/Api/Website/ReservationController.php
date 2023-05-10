@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Website\ReservationResource;
 use App\Models\Doctor\Doctor;
 use App\Models\Doctor\DoctorConsultation;
+use App\Models\PaymentMethod\PaymentMethod;
 use App\Models\Reservation\Reservation;
 use App\Models\Reservation\ReservationResult;
 use App\Traits\ApiTrait;
@@ -40,6 +41,7 @@ class ReservationController extends Controller
 
             $doctor_consultation = DoctorConsultation::where([['doctor_id','=',$request->doctor_id],['consultation_id','=',$request->consultation_id]])->first();
 
+            $payment_method = PaymentMethod::whereId($request->payment_method_id)->first();
             $data['user_id'] = auth()->id();
        
             $data['doctor_id'] = $request->doctor_id;
@@ -49,6 +51,8 @@ class ReservationController extends Controller
             $data['user_phone'] = $request->user_phone;
             $data['contact_type'] = $request->contact_type;
             $data['for_another_person'] = $request->for_another_person;
+            $data['image_required'] = $payment_method->image_required;
+            $data['code_required'] = $payment_method->code_required;
 
             if($request->for_another_person == 1){
             $data['another_person_name'] = $request->another_person_name;
@@ -159,6 +163,50 @@ class ReservationController extends Controller
 
                 
             $msg = "تم الغاء الحجز بنجاح";
+
+            $data = new ReservationResource($reservation);
+
+            return $this->dataResponse($msg, $data,200);
+
+           } catch (\Exception$ex) {
+            return $this->returnException($ex->getMessage(), 500);
+        }
+
+    }
+    public function send_reservation_image(Request $request){
+        try{
+
+               //validation
+
+               $rules = [
+                "reservation_id" => "required|exists:reservations,id"
+  
+             ];
+             $validator = Validator::make($request->all(), $rules);
+         
+             if ($validator->fails()) {
+        
+                 return $this->getvalidationErrors($validator);
+                 
+             }
+
+             $reservation = Reservation::whereId($request->reservation_id)->first();
+
+
+
+             $data = [];
+
+            if ($request->receipt_image) {
+            $data["receipt_image"] = upload_image($request->receipt_image, "docotrs");
+            }
+            if ($request->receipt_code) {
+            $data["receipt_code"] = $request->receipt_code;
+
+             }
+             $reservation->update($data);
+
+                
+            $msg = "تم  الارسال بنجاح";
 
             $data = new ReservationResource($reservation);
 

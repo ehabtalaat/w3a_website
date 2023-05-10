@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\Website\CourseController;
 use App\Http\Controllers\Api\Website\DoctorController;
 use App\Http\Controllers\Api\Website\FeatureController;
 use App\Http\Controllers\Api\Website\MainHeaderController;
+use App\Http\Controllers\Api\Website\PaymentMethodController;
 use App\Http\Controllers\Api\Website\podcastController;
 use App\Http\Controllers\Api\Website\Profile\PasswordController;
 use App\Http\Controllers\Api\Website\Profile\ProfileController;
@@ -50,6 +51,8 @@ Route::get("fetch_home_podcasts", [podcastController::class, "fetch_home_podcast
 Route::get("fetch_special_advice", [SpecialAdviceController::class, "index"]);
 
 Route::get("fetch_home_books", [BookController::class, "fetch_home_books"]);
+
+Route::get("fetch_payment_methods", [PaymentMethodController::class, "index"]);
 
 
 Route::get("fetch_center_consulting", [CenterConsultingController::class, "index"]);
@@ -223,6 +226,7 @@ Route::group(['controller' => ReservationController::class], function () {
     Route::get("fetch_your_reservations", "fetch_your_reservations");
     Route::post("reservation_details", "reservation_details");
     Route::post("cancel_reservation", "cancel_reservation");
+    Route::post("send_reservation_image", "send_reservation_image");
 
     }); 
 });

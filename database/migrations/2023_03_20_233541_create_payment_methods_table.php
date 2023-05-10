@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->increments("id");
+            $table->tinyInteger('image_required')->unsigned()->default(0);
+            $table->tinyInteger('code_required')->unsigned()->default(0);
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

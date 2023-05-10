@@ -34,7 +34,10 @@ class ReservationResource extends JsonResource
             "price" => $this->price ?? null,
             "patient_notes" => $this->patient_notes ?? '',
             "doctor_notes" => $this->result->doctor_notes ?? '',
-            "status" => intval($this->status)
+            "status" => intval($this->status),
+            "receipt_image" => $this->receipt_image ? asset($this->receipt_image) : "",
+            "receipt_code" => $this->receipt_code ?? '',
+
 
         ];
     }
