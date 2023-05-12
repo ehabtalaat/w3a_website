@@ -89,7 +89,7 @@
                         >{{__('messages.cash')}}</option>
                         <option value="1" @selected($payment_type->type == 1)
                         >{{__('messages.gate')}}</option>
-                        <option value="0" @selected($payment_type->type == 2)
+                        <option value="2" @selected($payment_type->type == 2)
                         >{{__('messages.image_required')}}</option>     
 
             </select>

@@ -88,7 +88,7 @@
                         >{{__('messages.cash')}}</option>
                         <option value="1" 
                         >{{__('messages.gate')}}</option>
-                        <option value="0" 
+                        <option value="2" 
                         >{{__('messages.image_required')}}</option>     
 
             </select>
