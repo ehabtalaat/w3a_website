@@ -85,11 +85,11 @@
   @error('type') is-invalid @enderror"  id="type"
                     name="type"   data-live-search="true" required
                     title="&nbsp;"  >
-                    <option value="0" @selected($payment_type->type == 0)
+                    <option value="0" @selected($payment_method->type == 0)
                         >{{__('messages.cash')}}</option>
-                        <option value="1" @selected($payment_type->type == 1)
+                        <option value="1" @selected($payment_method->type == 1)
                         >{{__('messages.gate')}}</option>
-                        <option value="2" @selected($payment_type->type == 2)
+                        <option value="2" @selected($payment_method->type == 2)
                         >{{__('messages.image_required')}}</option>     
 
             </select>
