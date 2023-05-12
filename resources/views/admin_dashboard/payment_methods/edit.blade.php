@@ -98,7 +98,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <div class="row">
                   @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                   <!-- For loop this div -->
