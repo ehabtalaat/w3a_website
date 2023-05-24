@@ -13,14 +13,14 @@ class MainHeaderController extends Controller
     public function index(){
         try{ 
             
-            $main_header = MainHeader::firstOrNew();
+            $main_header = MainHeader::get();
 
             //response
 
           
             
             $msg = "fetch_main_header";
-            $data = new MainHeaderResource($main_header);
+            $data =  MainHeaderResource::collection($main_header);
 
             return $this->dataResponse($msg, $data,200);
 
