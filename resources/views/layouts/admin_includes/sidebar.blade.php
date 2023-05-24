@@ -241,11 +241,7 @@
 							</a>
 						</li>
 					
-						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('store_headers.index')}}" class="menu-link">
-								<span class="menu-text">{{__('messages.store_headers')}}</span>
-							</a> 
-						</li> --}}
+					
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('certificates.index')}}" class="menu-link">
 								<span class="menu-text">{{__('messages.certificates')}}</span>
@@ -258,7 +254,11 @@
 							</a>
 						</li>
 					
-						
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('store_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.store_headers')}}</span>
+							</a> 
+						</li>
 
 
 						
@@ -306,7 +306,33 @@
 					</ul>
 				</div>
 			</li>
+			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+				<a href="javascript:;" class="menu-link menu-toggle">
+					<span class="svg-icon menu-icon">
+						<i class="fas fa-blog"></i>
+															</span>
+					<span class="menu-text">{{__('messages.blogs')}}</span>
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="menu-submenu">
+					<i class="menu-arrow"></i>
+					<ul class="menu-subnav">
+						<li class="menu-item menu-item-parent" aria-haspopup="true">
+							<span class="menu-link">
+								<span class="menu-text">{{__('messages.blogs')}}</span>
+							</span>
+						 </li>
+						 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('blogs.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.all')}}</span>
+							</a>
+						</li>
 
+						
+					
+					</ul>
+				</div>
+			</li>
 
 		
 
