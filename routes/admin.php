@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SpecialAdviceController;
 use App\Http\Controllers\Admin\StoreHeaderController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WebsiteReasonController;
 use App\Http\Controllers\Admin\WebsiteTextController;
 use App\Models\Blog\Blog;
@@ -266,4 +267,10 @@ Route::group(
           Route::post('website_texts/update', [WebsiteTextController::class ,'update'])->name('website_texts.update');
 
          });
+
+         //users
+         Route::group(['controller' => UserController::class], function () {
+            Route::get("users", "index")->name("users.index");
+            Route::post("users", "destroy")->name("users.destroy");
+            });
   });
