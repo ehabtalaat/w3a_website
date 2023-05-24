@@ -40,7 +40,7 @@ class UserDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->newQuery()->whereType(1);
+        return $model->newQuery();
     }
 
     /**
@@ -73,6 +73,7 @@ class UserDataTable extends DataTable
         return [
             ["data" => "id" ,"title" => 'id'],
             ["data" => "image" ,"title" => __('messages.image'),'searchable'=>false,'orderable'=>false],
+            
             ["data" => "name" ,"title" => __('messages.name')],
             ["data" => "phone" ,"title" => __('messages.phone')],
             ['data'=>'action','title'=>__("messages.actions"),'printable'=>false,'exportable'=>false,'orderable'=>false,'searchable'=>false],
