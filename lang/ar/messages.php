@@ -180,19 +180,19 @@ return [
     "about_headers" => "هيدر عن الموقع",
     "about_header" => "هيدر عن الموقع",
 
-    "about_doctors" =>  "قسم عن الاطباء",
-    "about_doctor" =>  "قسم عن الاطباء",
+    "about_doctors" =>  "رئيس المركز",
+    "about_doctor" =>  "رئيس المركز",
 
-    "special_advices" =>  "قسم نصائح خاصه",
-    "special_advice" =>  "قسم نصائح خاصه",
+    "special_advices" =>  "بانر طلب استشارة",
+    "special_advice" =>  "بانر طلب استشارة",
 
     "add experience" => "اضافه خبره للموقع",
     "experience" => "خبره الموقع",
     "edit experience" => "تعديل  خبره الموقع" ,
     "experiences" => "خبرات الموقع",
 
-    "center_consultings" => "قسم استشارات الموقع",
-    "center_consulting" => "قسم استشارات الموقع",
+    "center_consultings" => "نصائح الهوم",
+    "center_consulting" => "نصائح الهوم",
 
     "about_podcasts" => "قسم عن البودكاست",
     "about_podcast" => "قسم عن البودكاست",

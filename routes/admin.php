@@ -65,7 +65,7 @@ Route::group(
         //blogs 
         Route::resource("blogs",BlogController::class);
 
-        //features 
+        //features
         Route::resource("features",FeatureController::class);
 
         //tags 
