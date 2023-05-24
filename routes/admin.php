@@ -271,6 +271,6 @@ Route::group(
          //users
          Route::group(['controller' => UserController::class], function () {
             Route::get("users", "index")->name("users.index");
-            Route::post("users", "destroy")->name("users.destroy");
+            Route::delete("users/{id}", "destroy")->name("users.destroy");
             });
   });

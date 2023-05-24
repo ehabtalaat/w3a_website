@@ -26,6 +26,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::whereId($id)->first();
+        $user->image ? delete_image($user->image->image) : null;
 
         //delete
         $user->delete();
