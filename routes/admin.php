@@ -55,11 +55,13 @@ Route::group(
       Route::group(["middleware" => "auth:admin"], function () {
          Route::get("logout", [AuthController::class, "logout"])->name("logout");
         //main_headers
-        Route::group(['controller' => MainHeaderController::class], function () {
-        Route::get("main_headers", "index")->name("main_headers.index");
+      //   Route::group(['controller' => MainHeaderController::class], function () {
+      //   Route::get("main_headers", "index")->name("main_headers.index");
 
-        Route::put("main_headers/update", "update")->name("main_headers.update");
-        });
+      //   Route::put("main_headers/update", "update")->name("main_headers.update");
+      //   });
+
+        Route::resource("features",MainHeaderController::class);
 
 
         //blogs 

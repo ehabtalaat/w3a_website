@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\Admin\FeatureDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\MainHeader\UpdateRequest;
-use App\Models\MainHeader\MainHeader;
+use App\Http\Requests\Admin\Feature\StoreRequest;
+use App\Http\Requests\Admin\Feature\UpdateRequest;
+use App\Models\Feature\Feature;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -13,44 +15,99 @@ class MainHeaderController extends Controller
     protected $view = 'admin_dashboard.main_headers.';
     protected $route = 'main_headers.';
 
-    public function __construct()
+
+
+    public function index(FeatureDataTable $dataTable)
     {
-        $this->middleware(['permission:main_headers-update'])->only('update');
-    }
-    public function index()
-    {
-        $main_header = MainHeader::firstOrNew();
-        return view($this->view . 'index', compact('main_header'));
+        return $dataTable->render($this->view . 'index');
     }
 
     
-    public function update(UpdateRequest $request)
+    public function create()
     {
-        $main_header = MainHeader::firstOrCreate();
+        return view($this->view . 'create' );
+    }
+
+    
+    public function store(StoreRequest $request)
+    {
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
-            $data[$localeCode] = ['title' => $request['title-' . $localeCode],
-                                 'text' => $request['text-' . $localeCode],
+            $data[$localeCode] = ['text' => $request['text-' . $localeCode],
+                                    'title' => $request['title-' . $localeCode],
+          ];
+        }
+  
+        //create
+       $feature = Feature::create($data);
+
+    
+       $data_image = [];
+
+       //update image
+
+       if ($request->hasFile('image')) {
+           $data_image["image"] = upload_image($request->image, "main_headers");
+       }
+
+
+       //save image 
+       $feature->image()->create($data_image);
+
+        return redirect()->route($this->route."index")
+        ->with(['success'=> __("messages.createmessage")]);    
+    }
+
+    
+    public function edit($id)
+    {
+        $feature = Feature::whereId($id)->firstOrFail();
+        return view($this->view . 'edit' , compact('feature'));
+    }
+
+    
+    public function update(UpdateRequest $request, $id)
+    {
+        $feature = Feature::whereId($id)->first();
+        foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
+            $data[$localeCode] = ['text' => $request['text-' . $localeCode],
+                                    'title' => $request['title-' . $localeCode],
           ];
         }
       
-        $main_header->update($data);
+        //update
+        
+        $feature->update($data);
 
         $data_image = [];
 
+        //update image
+
         if ($request->hasFile('image')) {
-            $main_header->image ? delete_image($main_header->image->image) : null;
+            $feature->image ? delete_image($feature->image->image) : null;
             $data_image["image"] = upload_image($request->image, "main_headers");
         }
 
 
         //save image 
-        $main_header->image()->updateOrCreate([
-            "imageable_id" => $main_header->id
+        $feature->image()->updateOrCreate([
+            "imageable_id" => $feature->id
         ],$data_image);
 
-
-        return redirect()->back()
+        return redirect()->route($this->route."index")
         ->with(['success'=> __("messages.editmessage")]);
+    }
+
+    
+    public function destroy($id)
+    {
+        $feature = Feature::whereId($id)->first();
+
+        //delete image
+        $feature->image ? delete_image($feature->image->image) : null;
+
+        //delete
+        $feature->delete();
+        return response()->json(['status' => true]);
 
     }
 }
