@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\TagDataTable;
+use App\DataTables\Admin\UserDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tag\StoreRequest;
-use App\Http\Requests\Admin\Tag\UpdateRequest;
+
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -18,7 +17,7 @@ class UserController extends Controller
 
  
 
-    public function index(TagDataTable $dataTable)
+    public function index(UserDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');
     }
