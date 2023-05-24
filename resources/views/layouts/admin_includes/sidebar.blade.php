@@ -116,6 +116,62 @@
 				</div>
 			</li>
 
+			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+				<a href="javascript:;" class="menu-link menu-toggle">
+					<span class="svg-icon menu-icon">
+						<i class="fas fa-user-md"></i>
+					</span>
+					<span class="menu-text">{{__('messages.doctors')}}</span>
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="menu-submenu">
+					<i class="menu-arrow"></i>
+					<ul class="menu-subnav">
+						<li class="menu-item menu-item-parent" aria-haspopup="true">
+							<span class="menu-link">
+								<span class="menu-text">{{__('messages.doctors')}}</span>
+							</span>
+						 </li>
+						 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('consultations.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.consultations')}}</span>
+							</a>
+						</li>
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('doctors.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.doctors')}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+				<a href="javascript:;" class="menu-link menu-toggle">
+					<span class="svg-icon menu-icon">
+						<i class="fas fa-user-md"></i>
+					</span>
+					<span class="menu-text">{{__('messages.users')}}</span>
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="menu-submenu">
+					<i class="menu-arrow"></i>
+					<ul class="menu-subnav">
+						<li class="menu-item menu-item-parent" aria-haspopup="true">
+							<span class="menu-link">
+								<span class="menu-text">{{__('messages.users')}}</span>
+							</span>
+						 </li>
+				
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('users.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.users')}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+ 
  
 			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 				<a href="javascript:;" class="menu-link menu-toggle">
@@ -277,35 +333,7 @@
 				</div>
 			</li>
 
-			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-				<a href="javascript:;" class="menu-link menu-toggle">
-					<span class="svg-icon menu-icon">
-						<i class="fas fa-user-md"></i>
-					</span>
-					<span class="menu-text">{{__('messages.doctors')}}</span>
-					<i class="menu-arrow"></i>
-				</a>
-				<div class="menu-submenu">
-					<i class="menu-arrow"></i>
-					<ul class="menu-subnav">
-						<li class="menu-item menu-item-parent" aria-haspopup="true">
-							<span class="menu-link">
-								<span class="menu-text">{{__('messages.doctors')}}</span>
-							</span>
-						 </li>
-						 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('consultations.index')}}" class="menu-link">
-								<span class="menu-text">{{__('messages.consultations')}}</span>
-							</a>
-						</li>
-						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('doctors.index')}}" class="menu-link">
-								<span class="menu-text">{{__('messages.doctors')}}</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</li>
+		
 			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 				<a href="javascript:;" class="menu-link menu-toggle">
 					<span class="svg-icon menu-icon">
