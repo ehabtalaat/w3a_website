@@ -219,7 +219,7 @@ return [
     "edit lesson" => "تعديل درس" ,
     "lessons" =>  "دورس",
 
-    "website_courses" => "كورسات الموقع",
+    "website_courses" => "المحتوي التعليمى",
 
     'features_ar' => 'مميزات  بالعربى  ',
     'features_en' => 'مميزات بالانجليزي',
