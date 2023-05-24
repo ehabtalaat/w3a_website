@@ -41,7 +41,7 @@
                         {{ __('messages.features_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('features_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('features_text-' . $localeCode) is-invalid @enderror"
                         name="features_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.features_text') }}" >
                          {{$website_text->translate($localeCode)->features_text ?? ""}}
@@ -61,7 +61,7 @@
                         {{ __('messages.courses_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('courses_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('courses_text-' . $localeCode) is-invalid @enderror"
                         name="courses_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.courses_text') }}" >
                          {{$website_text->translate($localeCode)->courses_text ?? ""}}
@@ -81,7 +81,7 @@
                         {{ __('messages.store_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('store_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('store_text-' . $localeCode) is-invalid @enderror"
                         name="store_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.store_text') }}" >
                          {{$website_text->translate($localeCode)->store_text ?? ""}}
@@ -101,7 +101,7 @@
                         {{ __('messages.doctors_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('doctors_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('doctors_text-' . $localeCode) is-invalid @enderror"
                         name="doctors_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.doctors_text') }}" >
                          {{$website_text->translate($localeCode)->doctors_text ?? ""}}
@@ -121,7 +121,7 @@
                         {{ __('messages.blog_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('blog_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('blog_text-' . $localeCode) is-invalid @enderror"
                         name="blog_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.blog_text') }}" >
                          {{$website_text->translate($localeCode)->blog_text ?? ""}}
@@ -141,7 +141,7 @@
                         {{ __('messages.brief_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('brief_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('brief_text-' . $localeCode) is-invalid @enderror"
                         name="brief_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.brief_text') }}" >
                          {{$website_text->translate($localeCode)->brief_text ?? ""}}
@@ -162,7 +162,7 @@
                         {{ __('messages.website_reasons_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('website_reasons_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('website_reasons_text-' . $localeCode) is-invalid @enderror"
                         name="website_reasons_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.website_reasons_text') }}" >
                          {{$website_text->translate($localeCode)->website_reasons_text ?? ""}}
@@ -183,7 +183,7 @@
                         {{ __('messages.experiences_text') }}
                             <span class="text-danger"> ( {{ $localeCode }} )</span>
                         </label>
-                        <textarea  class="form-control summernote @error('experiences_text-' . $localeCode) is-invalid @enderror"
+                        <textarea  class="form-control  @error('experiences_text-' . $localeCode) is-invalid @enderror"
                         name="experiences_text-{{ $localeCode }}"
                          placeholder="{{ __('messages.experiences_text') }}" >
                          {{$website_text->translate($localeCode)->experiences_text ?? ""}}

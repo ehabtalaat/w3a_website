@@ -144,10 +144,10 @@ return [
     "consultations" => "استشارات طبيه",
     "edit consultation" => "تعديل  استشاره طبيه" ,
     
-    "add doctor" => "اضافه  طبيب",
-    "doctor" => "طبيب",
-    "edit doctor" => "تعديل  طبيب" ,
-    "doctors" => "الاطباء",
+    "add doctor" => "اضافه  معالج",
+    "doctor" => "معالج",
+    "edit doctor" => "تعديل  معالج" ,
+    "doctors" => "المعالجين",
     "website_settings" => "اعدادات الموقع",
 
     "add book_type" => "اضافه  نوع كتاب",
@@ -171,14 +171,14 @@ return [
     "edit website_reason" => "تعديل سبب استخدام" ,
     "website_reasons" => "اسباب استخدام الموقع",
 
-    "main_headers" => "الهيدر الرئيسى",
-    "main_header" => "الهيدر الرئيسى",
+    "main_headers" => "الهيدر الرئيسيه",
+    "main_header" => "الهيدر الرئيسيه",
 
     "store_headers" => "هيدر المتجر",
     "store_header" => "هيدر المتجر",
 
-    "about_headers" => "هيدر عن الدكتوره",
-    "about_header" => "هيدر عن الدكتوره",
+    "about_headers" => "هيدر عن الرئيس المركز",
+    "about_header" => "هيدر عن الرئيس المركز",
 
     "about_doctors" =>  "رئيس المركز",
     "about_doctor" =>  "رئيس المركز",
@@ -189,7 +189,7 @@ return [
     "add experience" => "اضافه خبره للموقع",
     "experience" => "خبره الموقع",
     "edit experience" => "تعديل  خبره الموقع" ,
-    "experiences" => "خبرات الموقع",
+    "experiences" => "شبكه رئيس المركز",
 
     "center_consultings" => "نصائح الهوم",
     "center_consulting" => "نصائح الهوم",
@@ -259,9 +259,9 @@ return [
 "wait_detection" => "فى انتظار الكشف",
 "done_detection" => "انتهى الكشف",
 "reservation_result" => "نتيجه الكشف",
-"doctor_notes" => "ملاحظات الدكتور",
-"" => "",
-"" => "",
+"doctor_notes" => "ملاحظات المعالج",
+"website_texts" => "نصوص الموقع",
+"home_setting" => "محتوي الرئيسيه",
 "" => "",
 "" => "",
 

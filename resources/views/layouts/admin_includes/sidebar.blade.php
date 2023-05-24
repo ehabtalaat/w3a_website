@@ -105,11 +105,11 @@
 				 				<span class="menu-text">{{__('messages.payment_methods')}}</span>
 							</a> 
 						</li>
-						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('website_reasons.index')}}" class="menu-link" >
 								<span class="menu-text">{{__('messages.website_reasons')}}</span>
 							</a>
-						</li>
+						</li> --}}
 					
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('website_texts.index')}}" class="menu-link">
@@ -127,7 +127,7 @@
 					<span class="svg-icon menu-icon">
 					<i class="fas fa-cogs"></i>
 					</span>
-					<span class="menu-text">{{__('messages.website_settings')}}</span>
+					<span class="menu-text">{{__('messages.home_setting')}}</span>
 					<i class="menu-arrow"></i>
 				</a>
 				<div class="menu-submenu">
@@ -135,7 +135,7 @@
 					<ul class="menu-subnav">
 						<li class="menu-item menu-item-parent" aria-haspopup="true">
 							<span class="menu-link">
-								<span class="menu-text">{{__('messages.website_settings')}}</span>
+								<span class="menu-text">{{__('messages.home_setting')}}</span>
 							</span>
 						</li>
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -143,21 +143,44 @@
 								<span class="menu-text">{{__('messages.main_headers')}}</span>
 							</a>
 						</li>
+
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('features.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.features')}}</span> 
+							</a>
+						</li>
+
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('about_doctors.index')}}" class="menu-link">
 								<span class="menu-text">{{__('messages.about_doctors')}}</span>
 							</a>
 						</li>
+
+						
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('about_headers.index')}}" class="menu-link">
-								<span class="menu-text">{{__('messages.about_headers')}}</span>
-							</a> 
+							<a href="{{route('about_podcasts.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.about_podcasts')}}</span> 
+							</a>
 						</li>
+
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('special_advices.index')}}" class="menu-link" >
 								<span class="menu-text">{{__('messages.special_advices')}}</span>
 							</a>
 						</li>
+
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('center_consultings.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.center_consultings')}}</span> 
+							</a>
+						</li>
+						
+						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('about_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.about_headers')}}</span>
+							</a> 
+						</li>
+					
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('store_headers.index')}}" class="menu-link">
 								<span class="menu-text">{{__('messages.store_headers')}}</span>
@@ -176,30 +199,17 @@
 						</li>
 
 
-						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('center_consultings.index')}}" class="menu-link" >
-								<span class="menu-text">{{__('messages.center_consultings')}}</span> 
-							</a>
-						</li>
+						
 
 						
-						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('about_podcasts.index')}}" class="menu-link" >
-								<span class="menu-text">{{__('messages.about_podcasts')}}</span> 
-							</a>
-						</li>
 
-						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('features.index')}}" class="menu-link" >
-								<span class="menu-text">{{__('messages.features')}}</span> 
-							</a>
-						</li>
+					
 
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('blogs.index')}}" class="menu-link" >
 								<span class="menu-text">{{__('messages.blogs')}}</span> 
 							</a>
-						</li>
+						</li> --}}
 
 					</ul>
 				</div>
