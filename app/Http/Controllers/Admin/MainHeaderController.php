@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\Admin\FeatureDataTable;
+use App\DataTables\Admin\MainHeaderDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Feature\StoreRequest;
-use App\Http\Requests\Admin\Feature\UpdateRequest;
-use App\Models\Feature\Feature;
+use App\Http\Requests\Admin\MainHeader\UpdateRequest;
+use App\Models\MainHeader\MainHeader;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -17,7 +16,7 @@ class MainHeaderController extends Controller
 
 
 
-    public function index(FeatureDataTable $dataTable)
+    public function index(MainHeaderDataTable $dataTable)
     {
         return $dataTable->render($this->view . 'index');
     }
@@ -29,7 +28,7 @@ class MainHeaderController extends Controller
     }
 
     
-    public function store(StoreRequest $request)
+    public function store(UpdateRequest $request)
     {
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['text' => $request['text-' . $localeCode],
@@ -38,7 +37,7 @@ class MainHeaderController extends Controller
         }
   
         //create
-       $feature = Feature::create($data);
+       $main_header = MainHeader::create($data);
 
     
        $data_image = [];
@@ -51,7 +50,7 @@ class MainHeaderController extends Controller
 
 
        //save image 
-       $feature->image()->create($data_image);
+       $main_header->image()->create($data_image);
 
         return redirect()->route($this->route."index")
         ->with(['success'=> __("messages.createmessage")]);    
@@ -60,14 +59,14 @@ class MainHeaderController extends Controller
     
     public function edit($id)
     {
-        $feature = Feature::whereId($id)->firstOrFail();
-        return view($this->view . 'edit' , compact('feature'));
+        $main_header = MainHeader::whereId($id)->firstOrFail();
+        return view($this->view . 'edit' , compact('main_header'));
     }
 
     
     public function update(UpdateRequest $request, $id)
     {
-        $feature = Feature::whereId($id)->first();
+        $main_header = MainHeader::whereId($id)->first();
         foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
             $data[$localeCode] = ['text' => $request['text-' . $localeCode],
                                     'title' => $request['title-' . $localeCode],
@@ -76,21 +75,21 @@ class MainHeaderController extends Controller
       
         //update
         
-        $feature->update($data);
+        $main_header->update($data);
 
         $data_image = [];
 
         //update image
 
         if ($request->hasFile('image')) {
-            $feature->image ? delete_image($feature->image->image) : null;
+            $main_header->image ? delete_image($main_header->image->image) : null;
             $data_image["image"] = upload_image($request->image, "main_headers");
         }
 
 
         //save image 
-        $feature->image()->updateOrCreate([
-            "imageable_id" => $feature->id
+        $main_header->image()->updateOrCreate([
+            "imageable_id" => $main_header->id
         ],$data_image);
 
         return redirect()->route($this->route."index")
@@ -100,13 +99,13 @@ class MainHeaderController extends Controller
     
     public function destroy($id)
     {
-        $feature = Feature::whereId($id)->first();
+        $main_header = MainHeader::whereId($id)->first();
 
         //delete image
-        $feature->image ? delete_image($feature->image->image) : null;
+        $main_header->image ? delete_image($main_header->image->image) : null;
 
         //delete
-        $feature->delete();
+        $main_header->delete();
         return response()->json(['status' => true]);
 
     }
