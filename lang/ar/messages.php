@@ -98,7 +98,7 @@ return [
 
 
 
-    "features" => "مميزات الموقع ",
+    "features" => "المميزات المتوفره",
     "add feature" => "اضافه  ميزه",
     "add_feature" => "اضافه  ميزه",
     "feature" => "ميزه",
@@ -177,8 +177,8 @@ return [
     "store_headers" => "هيدر المتجر",
     "store_header" => "هيدر المتجر",
 
-    "about_headers" => "هيدر عن الموقع",
-    "about_header" => "هيدر عن الموقع",
+    "about_headers" => "هيدر عن الدكتوره",
+    "about_header" => "هيدر عن الدكتوره",
 
     "about_doctors" =>  "رئيس المركز",
     "about_doctor" =>  "رئيس المركز",
