@@ -105,11 +105,6 @@
 				 				<span class="menu-text">{{__('messages.payment_methods')}}</span>
 							</a> 
 						</li>
-						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-							<a href="{{route('website_reasons.index')}}" class="menu-link" >
-								<span class="menu-text">{{__('messages.website_reasons')}}</span>
-							</a>
-						</li> --}}
 					
 						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 							<a href="{{route('website_texts.index')}}" class="menu-link">
@@ -216,6 +211,72 @@
 			</li>
 
 				
+			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+				<a href="javascript:;" class="menu-link menu-toggle">
+					<span class="svg-icon menu-icon">
+					<i class="fas fa-cogs"></i>
+					</span>
+					<span class="menu-text">{{__('messages.about_setting')}}</span>
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="menu-submenu">
+					<i class="menu-arrow"></i>
+					<ul class="menu-subnav">
+						<li class="menu-item menu-item-parent" aria-haspopup="true">
+							<span class="menu-link">
+								<span class="menu-text">{{__('messages.about_setting')}}</span>
+							</span>
+						</li>
+						
+						
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('about_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.about_headers')}}</span>
+							</a> 
+						</li>
+
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('experiences.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.experiences')}}</span>
+							</a>
+						</li>
+					
+						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('store_headers.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.store_headers')}}</span>
+							</a> 
+						</li> --}}
+						<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('certificates.index')}}" class="menu-link">
+								<span class="menu-text">{{__('messages.certificates')}}</span>
+							</a> 
+						</li>
+
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+							<a href="{{route('website_reasons.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.website_reasons')}}</span>
+							</a>
+						</li>
+					
+						
+
+
+						
+
+						
+
+					
+
+						{{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"> 
+							<a href="{{route('blogs.index')}}" class="menu-link" >
+								<span class="menu-text">{{__('messages.blogs')}}</span> 
+							</a>
+						</li> --}}
+
+					</ul>
+				</div>
+			</li>
+
 			<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 				<a href="javascript:;" class="menu-link menu-toggle">
 					<span class="svg-icon menu-icon">
