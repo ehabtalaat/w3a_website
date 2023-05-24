@@ -61,7 +61,7 @@ Route::group(
       //   Route::put("main_headers/update", "update")->name("main_headers.update");
       //   });
 
-        Route::resource("features",MainHeaderController::class);
+        Route::resource("main_headers",MainHeaderController::class);
 
 
         //blogs 
