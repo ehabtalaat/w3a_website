@@ -37,6 +37,7 @@ class ReservationResource extends JsonResource
             "status" => intval($this->status),
             "receipt_image" => $this->receipt_image ? asset($this->receipt_image) : "",
             "type" => intval($this->type),
+            "payment_status" => 0
 
 
         ];
