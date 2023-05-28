@@ -21,4 +21,10 @@ class PaymentMethod extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+    public function scopeOnline($query){
+        return $query->where("offline_type",0)->orWhere("offline_type",2);
+    }
+    public function scopeOffline($query){
+        return $query->where("offline_type",1)->orWhere("offline_type",2);
+    }
 }

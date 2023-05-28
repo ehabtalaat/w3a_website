@@ -97,6 +97,29 @@
 {{ $message }}</span> @enderror
         </div>
     </div>
+
+    <div class="col-md-6 col-6">
+        <div class="form-group">
+            <label>
+                {{ __('messages.offline_type') }}
+
+            </label>
+            <select class="selectpicker form-control 
+  @error('offline_type') is-invalid @enderror"  id="offline_type"
+                    name="offline_type"   data-live-search="true" required
+                    title="&nbsp;"  >
+                    <option value="0"  @selected($payment_method->offline_type == 0)
+                        >{{__('messages.online')}}</option>
+                        <option value="1"  @selected($payment_method->offline_type == 1)
+                        >{{__('messages.offline')}}</option>
+                        <option value="2" @selected($payment_method->offline_type == 2)
+                        >{{__('messages.online_and_offline')}}</option>     
+
+            </select>
+            @error('offline_type') <span class="invalid-feedback">
+{{ $message }}</span> @enderror
+        </div>
+    </div>
 </div>
 
 <div class="row">

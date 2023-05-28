@@ -52,7 +52,7 @@ Route::get("fetch_special_advice", [SpecialAdviceController::class, "index"]);
 
 Route::get("fetch_home_books", [BookController::class, "fetch_home_books"]);
 
-Route::get("fetch_payment_methods", [PaymentMethodController::class, "index"]);
+Route::post("fetch_payment_methods", [PaymentMethodController::class, "index"]);
 
 
 Route::get("fetch_center_consulting", [CenterConsultingController::class, "index"]);

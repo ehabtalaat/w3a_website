@@ -44,6 +44,7 @@ class PaymentMethodController extends Controller
         }
   
         $data["type"] = $request->type;
+        $data["offline_type"] = $request->offline_type;
 
        $payment_method = PaymentMethod::create($data);
 
@@ -80,7 +81,7 @@ class PaymentMethodController extends Controller
                                     'title' => $request['title-' . $localeCode],
           ];
         }
-        $data["type"] = $request->type;
+        $data["offline_type"] = $request->offline_type;
         
         $payment_method->update($data);
 
